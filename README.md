@@ -78,4 +78,4 @@ Luego persiste con `DataWriterService`.
 - `Doxyfile` para generar docs (Doxygen).
 
 **Disclaimer**
-Este repo es tecnico y educativo. No es consejo financiero ni un sistema apto para trading real sin certificacion y pruebas exhaustivas.
+Este repo es tecnico . No es consejo financiero ni un sistema apto para trading real sin certificacion y pruebas exhaustivas.
