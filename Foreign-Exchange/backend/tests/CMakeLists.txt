@@ -1,0 +1,10 @@
+
+add_executable(message_codec_test message_codec_test.cpp)
+target_link_libraries(message_codec_test PRIVATE argentum_codec argentum_bus argentum_core)
+
+add_test(NAME message_codec_test COMMAND message_codec_test)
+
+add_executable(message_bus_test message_bus_test.cpp)
+target_link_libraries(message_bus_test PRIVATE argentum_bus argentum_core)
+
+add_test(NAME message_bus_test COMMAND message_bus_test)
