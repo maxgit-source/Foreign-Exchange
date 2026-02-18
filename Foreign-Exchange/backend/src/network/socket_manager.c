@@ -15,6 +15,7 @@
 #include <string.h>
 
 #define POLL_TIMEOUT_MS 5
+#define READ_EVENTS (POLLIN | POLLRDNORM)
 
 typedef struct {
     SOCKET socket;
@@ -129,8 +130,10 @@ int sm_listen(SocketManager* sm, uint16_t port, SocketCallback callback, void* c
     SOCKET s = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (s == INVALID_SOCKET) return -1;
 
-    int reuse = 1;
-    setsockopt(s, SOL_SOCKET, SO_REUSEADDR, (const char*)&reuse, sizeof(reuse));
+    int exclusive = 1;
+#ifdef SO_EXCLUSIVEADDRUSE
+    setsockopt(s, SOL_SOCKET, SO_EXCLUSIVEADDRUSE, (const char*)&exclusive, sizeof(exclusive));
+#endif
     int nodelay = 1;
     setsockopt(s, IPPROTO_TCP, TCP_NODELAY, (const char*)&nodelay, sizeof(nodelay));
     if (set_nonblocking(s) != 0) {
@@ -156,7 +159,7 @@ int sm_listen(SocketManager* sm, uint16_t port, SocketCallback callback, void* c
 
     size_t idx = sm->count++;
     sm->fds[idx].fd = s;
-    sm->fds[idx].events = POLLRDNORM;
+    sm->fds[idx].events = READ_EVENTS | POLLERR;
     sm->fds[idx].revents = 0;
     sm->entries[idx].socket = s;
     sm->entries[idx].callback = callback;
@@ -203,7 +206,7 @@ int sm_connect(SocketManager* sm, const char* ip, uint16_t port, SocketCallback 
 
     size_t idx = sm->count++;
     sm->fds[idx].fd = s;
-    sm->fds[idx].events = POLLRDNORM | POLLWRNORM | POLLERR;
+    sm->fds[idx].events = READ_EVENTS | POLLWRNORM | POLLERR;
     sm->fds[idx].revents = 0;
     sm->entries[idx].socket = s;
     sm->entries[idx].callback = callback;
@@ -257,7 +260,7 @@ void sm_run(SocketManager* sm) {
                 continue;
             }
 
-            if (entry->is_listener && (revents & POLLRDNORM)) {
+            if (entry->is_listener && (revents & READ_EVENTS)) {
                 for (;;) {
                     SOCKET client = accept(entry->socket, NULL, NULL);
                     if (client == INVALID_SOCKET) {
@@ -279,7 +282,7 @@ void sm_run(SocketManager* sm) {
 
                     size_t idx = sm->count++;
                     sm->fds[idx].fd = client;
-                    sm->fds[idx].events = POLLRDNORM | POLLWRNORM | POLLERR;
+                    sm->fds[idx].events = READ_EVENTS | POLLWRNORM | POLLERR;
                     sm->fds[idx].revents = 0;
                     sm->entries[idx].socket = client;
                     sm->entries[idx].callback = entry->callback;
@@ -309,7 +312,7 @@ void sm_run(SocketManager* sm) {
                 }
             }
 
-            if (revents & POLLRDNORM) {
+            if (revents & READ_EVENTS) {
                 uint8_t* buffer = pool_acquire(&sm->pool);
                 uint8_t stack_buffer[RECV_BUFFER_SIZE];
                 uint8_t* target = buffer ? buffer : stack_buffer;

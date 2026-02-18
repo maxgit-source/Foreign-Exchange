@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Solution>
+	<Configurations>
+		<BuildType Name="Debug"/>
+		<BuildType Name="Release"/>
+		<BuildType Name="MinSizeRel"/>
+		<BuildType Name="RelWithDebInfo"/>
+		<Platform Name="x64"/>
+	</Configurations>
+	<Project Path="ALL_BUILD.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="c90d218b-0fbe-3f66-9900-45d95ceef83f" DefaultStartup="true">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/tests/api_gateway_contract_test.vcxproj"/>
+		<BuildDependency Project="backend/tests/api_network_e2e_test.vcxproj"/>
+		<BuildDependency Project="backend/tests/api_order_guard_test.vcxproj"/>
+		<BuildDependency Project="backend/api/argentum_api.vcxproj"/>
+		<BuildDependency Project="backend/argentum_backtest.vcxproj"/>
+		<BuildDependency Project="backend/argentum_bus.vcxproj"/>
+		<BuildDependency Project="backend/argentum_codec.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+		<BuildDependency Project="backend/argentum_datafeed.vcxproj"/>
+		<BuildDependency Project="backend/argentum_engine.vcxproj"/>
+		<BuildDependency Project="backend/argentum_network.vcxproj"/>
+		<BuildDependency Project="backend/argentum_node.vcxproj"/>
+		<BuildDependency Project="backend/argentum_persist.vcxproj"/>
+		<BuildDependency Project="backend/argentum_pipeline_benchmark.vcxproj"/>
+		<BuildDependency Project="backend/argentum_risk.vcxproj"/>
+		<BuildDependency Project="backend/argentum_trading.vcxproj"/>
+		<BuildDependency Project="backend/tests/data_writer_test.vcxproj"/>
+		<BuildDependency Project="backend/tests/message_bus_test.vcxproj"/>
+		<BuildDependency Project="backend/tests/message_codec_test.vcxproj"/>
+		<BuildDependency Project="backend/tests/order_flow_test.vcxproj"/>
+		<Build Solution="Debug|*" Project="false"/>
+		<Build Solution="Release|*" Project="false"/>
+		<Build Solution="MinSizeRel|*" Project="false"/>
+		<Build Solution="RelWithDebInfo|*" Project="false"/>
+	</Project>
+	<Project Path="RUN_TESTS.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9210baaf-3f44-33a6-85e5-afe51a20fdf8">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<Build Solution="Debug|*" Project="false"/>
+		<Build Solution="Release|*" Project="false"/>
+		<Build Solution="MinSizeRel|*" Project="false"/>
+		<Build Solution="RelWithDebInfo|*" Project="false"/>
+	</Project>
+	<Project Path="ZERO_CHECK.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b97f5c8c-55c0-3691-80fd-9d813207b019"/>
+	<Project Path="backend/tests/api_gateway_contract_test.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="09b85929-6b39-39ee-b116-41a8036df46e">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/api/argentum_api.vcxproj"/>
+		<BuildDependency Project="backend/argentum_bus.vcxproj"/>
+		<BuildDependency Project="backend/argentum_codec.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+		<BuildDependency Project="backend/argentum_engine.vcxproj"/>
+		<BuildDependency Project="backend/argentum_network.vcxproj"/>
+		<BuildDependency Project="backend/argentum_risk.vcxproj"/>
+		<BuildDependency Project="backend/argentum_trading.vcxproj"/>
+	</Project>
+	<Project Path="backend/tests/api_network_e2e_test.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="60126b42-7ff8-3a03-9112-10c8c21fb616">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/api/argentum_api.vcxproj"/>
+		<BuildDependency Project="backend/argentum_bus.vcxproj"/>
+		<BuildDependency Project="backend/argentum_codec.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+		<BuildDependency Project="backend/argentum_engine.vcxproj"/>
+		<BuildDependency Project="backend/argentum_network.vcxproj"/>
+		<BuildDependency Project="backend/argentum_risk.vcxproj"/>
+		<BuildDependency Project="backend/argentum_trading.vcxproj"/>
+	</Project>
+	<Project Path="backend/tests/api_order_guard_test.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="15efbbdf-f5e1-3f57-bf55-b71fa4a39cfc">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/api/argentum_api.vcxproj"/>
+		<BuildDependency Project="backend/argentum_bus.vcxproj"/>
+		<BuildDependency Project="backend/argentum_codec.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+		<BuildDependency Project="backend/argentum_engine.vcxproj"/>
+		<BuildDependency Project="backend/argentum_network.vcxproj"/>
+		<BuildDependency Project="backend/argentum_risk.vcxproj"/>
+		<BuildDependency Project="backend/argentum_trading.vcxproj"/>
+	</Project>
+	<Project Path="backend/api/argentum_api.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b397848c-3040-3fe8-bad7-b617c20df68a">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_bus.vcxproj"/>
+		<BuildDependency Project="backend/argentum_codec.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+		<BuildDependency Project="backend/argentum_engine.vcxproj"/>
+		<BuildDependency Project="backend/argentum_network.vcxproj"/>
+		<BuildDependency Project="backend/argentum_risk.vcxproj"/>
+		<BuildDependency Project="backend/argentum_trading.vcxproj"/>
+	</Project>
+	<Project Path="backend/argentum_backtest.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="fb895fca-9c0e-37fc-89bb-f6d2d36d5bc5">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+	</Project>
+	<Project Path="backend/argentum_bus.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="2a15d167-bf39-3e42-8ed9-0c3fa622df8d">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+	</Project>
+	<Project Path="backend/argentum_codec.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="7268087b-1fe3-35f9-b0fb-7399c00b6d92">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_bus.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+	</Project>
+	<Project Path="backend/argentum_core.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9d8f754f-acf4-3c67-b6b7-502fd18fc001">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+	</Project>
+	<Project Path="backend/argentum_datafeed.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="89b3b862-95cd-3b7e-8848-5778092c06e0">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_bus.vcxproj"/>
+		<BuildDependency Project="backend/argentum_codec.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+	</Project>
+	<Project Path="backend/argentum_engine.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b101ecd2-e2ba-3647-8e64-059d10055697">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+	</Project>
+	<Project Path="backend/argentum_network.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="b892dbcc-09d5-376f-aadc-64fe07d6b6db">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+	</Project>
+	<Project Path="backend/argentum_node.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="a9db5dfe-182b-31a5-9a60-8788ec78e927">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/api/argentum_api.vcxproj"/>
+		<BuildDependency Project="backend/argentum_backtest.vcxproj"/>
+		<BuildDependency Project="backend/argentum_bus.vcxproj"/>
+		<BuildDependency Project="backend/argentum_codec.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+		<BuildDependency Project="backend/argentum_datafeed.vcxproj"/>
+		<BuildDependency Project="backend/argentum_engine.vcxproj"/>
+		<BuildDependency Project="backend/argentum_network.vcxproj"/>
+		<BuildDependency Project="backend/argentum_persist.vcxproj"/>
+		<BuildDependency Project="backend/argentum_risk.vcxproj"/>
+		<BuildDependency Project="backend/argentum_trading.vcxproj"/>
+	</Project>
+	<Project Path="backend/argentum_persist.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="bf572331-2f7c-3ebe-86aa-c4e65b2a8725">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+	</Project>
+	<Project Path="backend/argentum_pipeline_benchmark.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="260add83-8fd8-36ae-909a-7a2d3b115088">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_bus.vcxproj"/>
+		<BuildDependency Project="backend/argentum_codec.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+		<BuildDependency Project="backend/argentum_persist.vcxproj"/>
+	</Project>
+	<Project Path="backend/argentum_risk.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="cb528f02-a2fa-3d19-9398-f110655e5589">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+	</Project>
+	<Project Path="backend/argentum_trading.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="ab74f58d-3a20-329e-933a-88f566beade9">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+		<BuildDependency Project="backend/argentum_engine.vcxproj"/>
+		<BuildDependency Project="backend/argentum_risk.vcxproj"/>
+	</Project>
+	<Project Path="backend/tests/data_writer_test.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="113481c6-2315-35e9-9e37-34b6ce0d33a8">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+		<BuildDependency Project="backend/argentum_persist.vcxproj"/>
+	</Project>
+	<Project Path="backend/tests/message_bus_test.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="861d9661-718f-38de-ba27-162caffdecdf">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_bus.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+	</Project>
+	<Project Path="backend/tests/message_codec_test.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="9b44cae2-9dd2-32a5-bfd9-ee41704a953b">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_bus.vcxproj"/>
+		<BuildDependency Project="backend/argentum_codec.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+	</Project>
+	<Project Path="backend/tests/order_flow_test.vcxproj" Type="8bc9ceb8-8b4a-11d0-8d11-00a0c91bc942" Id="857bf706-7540-39d3-9406-ccf1c98f79d6">
+		<BuildDependency Project="ZERO_CHECK.vcxproj"/>
+		<BuildDependency Project="backend/argentum_core.vcxproj"/>
+		<BuildDependency Project="backend/argentum_engine.vcxproj"/>
+		<BuildDependency Project="backend/argentum_risk.vcxproj"/>
+		<BuildDependency Project="backend/argentum_trading.vcxproj"/>
+	</Project>
+</Solution>

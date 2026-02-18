@@ -33,8 +33,14 @@ MarketGatewayService::MarketGatewayService(
     GatewaySecurityConfig security)
     : bus_(std::move(bus)),
       market_topic_(std::move(market_topic)),
-      security_(std::move(security)),
-      rate_window_start_(std::chrono::steady_clock::now()) {}
+      security_(std::move(security)) {
+    if (!security_.api_token.empty()) {
+        const uint64_t expiry_ns = security_.default_token_ttl_ms == 0
+            ? 0
+            : (core::unix_now_ns() + security_.default_token_ttl_ms * 1'000'000ULL);
+        token_expiry_ns_[security_.api_token] = expiry_ns;
+    }
+}
 
 void MarketGatewayService::start() {
     bool expected = false;
@@ -89,46 +95,110 @@ std::string MarketGatewayService::health_json() const {
     return to_json(metrics(), started_.load(std::memory_order_relaxed));
 }
 
-bool MarketGatewayService::consume_rate_limit() {
+bool MarketGatewayService::consume_rate_limit(const std::string& key) {
     const auto now = std::chrono::steady_clock::now();
     const auto window = std::chrono::milliseconds(security_.rate_limit.window_ms == 0
         ? 1
         : security_.rate_limit.window_ms);
 
-    if (now - rate_window_start_ >= window) {
-        rate_window_start_ = now;
-        rate_window_requests_ = 0;
+    auto& state = rate_windows_[key];
+    if (state.window_start.time_since_epoch().count() == 0) {
+        state.window_start = now;
+    }
+    if (now - state.window_start >= window) {
+        state.window_start = now;
+        state.requests = 0;
     }
 
     if (security_.rate_limit.max_requests == 0) {
         return false;
     }
-    if (rate_window_requests_ >= security_.rate_limit.max_requests) {
+    if (state.requests >= security_.rate_limit.max_requests) {
         return false;
     }
-    ++rate_window_requests_;
+    ++state.requests;
     return true;
 }
 
-bool MarketGatewayService::authorize_request(const std::string& provided_token, GatewayRejectReason* reason) {
-    order_requests_.fetch_add(1, std::memory_order_relaxed);
+bool MarketGatewayService::token_allowed_unlocked(const std::string& token, uint64_t now_ns) {
+    if (token_expiry_ns_.empty()) {
+        return true;
+    }
 
-    if (!security_.api_token.empty() && provided_token != security_.api_token) {
-        auth_failures_.fetch_add(1, std::memory_order_relaxed);
-        order_rejected_.fetch_add(1, std::memory_order_relaxed);
-        if (reason) *reason = GatewayRejectReason::Unauthorized;
+    auto it = token_expiry_ns_.find(token);
+    if (it == token_expiry_ns_.end()) {
         return false;
     }
 
-    std::lock_guard<std::mutex> lock(mutex_);
-    if (!consume_rate_limit()) {
-        rate_limited_.fetch_add(1, std::memory_order_relaxed);
-        order_rejected_.fetch_add(1, std::memory_order_relaxed);
-        if (reason) *reason = GatewayRejectReason::RateLimited;
+    const uint64_t expiry_ns = it->second;
+    if (expiry_ns != 0 && now_ns > expiry_ns) {
+        token_expiry_ns_.erase(it);
         return false;
+    }
+    return true;
+}
+
+bool MarketGatewayService::authorize_request(
+    const std::string& provided_token,
+    GatewayRejectReason* reason,
+    bool count_as_order_request) {
+    if (count_as_order_request) {
+        order_requests_.fetch_add(1, std::memory_order_relaxed);
+    }
+
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        const uint64_t now_ns = core::unix_now_ns();
+        if (!token_allowed_unlocked(provided_token, now_ns)) {
+            auth_failures_.fetch_add(1, std::memory_order_relaxed);
+            if (count_as_order_request) {
+                order_rejected_.fetch_add(1, std::memory_order_relaxed);
+            }
+            if (reason) *reason = GatewayRejectReason::Unauthorized;
+            return false;
+        }
+
+        const std::string key = provided_token.empty() ? "anonymous" : provided_token;
+        if (!consume_rate_limit(key)) {
+            rate_limited_.fetch_add(1, std::memory_order_relaxed);
+            if (count_as_order_request) {
+                order_rejected_.fetch_add(1, std::memory_order_relaxed);
+            }
+            if (reason) *reason = GatewayRejectReason::RateLimited;
+            return false;
+        }
     }
 
     if (reason) *reason = GatewayRejectReason::None;
+    return true;
+}
+
+bool MarketGatewayService::add_token(const std::string& token, uint64_t ttl_ms) {
+    if (token.empty()) return false;
+    std::lock_guard<std::mutex> lock(mutex_);
+    const uint64_t expiry_ns = ttl_ms == 0
+        ? 0
+        : (core::unix_now_ns() + ttl_ms * 1'000'000ULL);
+    token_expiry_ns_[token] = expiry_ns;
+    return true;
+}
+
+bool MarketGatewayService::revoke_token(const std::string& token) {
+    if (token.empty()) return false;
+    std::lock_guard<std::mutex> lock(mutex_);
+    return token_expiry_ns_.erase(token) > 0;
+}
+
+bool MarketGatewayService::rotate_token(const std::string& old_token, const std::string& new_token, uint64_t ttl_ms) {
+    if (old_token.empty() || new_token.empty()) return false;
+    std::lock_guard<std::mutex> lock(mutex_);
+    auto it = token_expiry_ns_.find(old_token);
+    if (it == token_expiry_ns_.end()) return false;
+    token_expiry_ns_.erase(it);
+    const uint64_t expiry_ns = ttl_ms == 0
+        ? 0
+        : (core::unix_now_ns() + ttl_ms * 1'000'000ULL);
+    token_expiry_ns_[new_token] = expiry_ns;
     return true;
 }
 

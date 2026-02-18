@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core/types.h"
+#include "core/fixed_point.hpp"
 #include <vector>
 #include <map>
 #include <list>
@@ -37,6 +38,9 @@ public:
      * @brief Cancels an existing order.
      */
     bool cancel_order(uint64_t order_id);
+    bool cancel_order_partial(uint64_t order_id, int64_t reduce_lots, Order* out_updated = nullptr);
+    bool modify_order(uint64_t order_id, const Order& replacement);
+    bool get_order(uint64_t order_id, Order* out_order) const;
 
     /**
      * @brief Matches incoming market orders against the book.
@@ -70,14 +74,14 @@ private:
     // Price Levels: Price -> List of Orders (Time priority)
     // Using std::greater for Bids (Highest first)
     using OrderList = std::list<Order>;
-    std::map<double, OrderList, std::greater<double>> bids_;
+    std::map<int64_t, OrderList, std::greater<int64_t>> bids_;
     
     // Using std::less for Asks (Lowest first)
-    std::map<double, OrderList, std::less<double>> asks_;
+    std::map<int64_t, OrderList, std::less<int64_t>> asks_;
 
     struct OrderLocator {
         Side side;
-        double price;
+        int64_t price_ticks;
         OrderList::iterator it;
     };
 

@@ -28,3 +28,19 @@ add_executable(api_order_guard_test api_order_guard_test.cpp)
 target_link_libraries(api_order_guard_test PRIVATE argentum_api argentum_trading argentum_risk argentum_engine argentum_bus argentum_core)
 
 add_test(NAME api_order_guard_test COMMAND api_order_guard_test)
+
+add_executable(api_network_e2e_test api_network_e2e_test.cpp)
+target_link_libraries(api_network_e2e_test PRIVATE
+  argentum_api
+  argentum_trading
+  argentum_risk
+  argentum_engine
+  argentum_bus
+  argentum_codec
+  argentum_core
+)
+if(WIN32)
+  target_link_libraries(api_network_e2e_test PRIVATE ws2_32)
+endif()
+
+add_test(NAME api_network_e2e_test COMMAND api_network_e2e_test)

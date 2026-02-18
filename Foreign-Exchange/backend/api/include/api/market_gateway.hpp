@@ -21,6 +21,7 @@ struct RateLimitConfig {
 struct GatewaySecurityConfig {
     std::string api_token;
     RateLimitConfig rate_limit{};
+    uint64_t default_token_ttl_ms = 0;
 };
 
 enum class GatewayRejectReason {
@@ -65,13 +66,25 @@ public:
     std::string latest_tick_json(const std::string& symbol) const;
     std::string health_json() const;
 
-    bool authorize_request(const std::string& provided_token, GatewayRejectReason* reason = nullptr);
+    bool authorize_request(
+        const std::string& provided_token,
+        GatewayRejectReason* reason = nullptr,
+        bool count_as_order_request = true);
+    bool add_token(const std::string& token, uint64_t ttl_ms = 0);
+    bool revoke_token(const std::string& token);
+    bool rotate_token(const std::string& old_token, const std::string& new_token, uint64_t ttl_ms = 0);
     void record_order_result(bool accepted);
     GatewayMetrics metrics() const;
     void reset_metrics();
 
 private:
-    bool consume_rate_limit();
+    struct RateWindowState {
+        std::chrono::steady_clock::time_point window_start{};
+        uint32_t requests = 0;
+    };
+
+    bool consume_rate_limit(const std::string& key);
+    bool token_allowed_unlocked(const std::string& token, uint64_t now_ns);
     void on_market_message(const void* data, size_t size);
     static std::string normalize_key(const char* symbol);
 
@@ -82,8 +95,8 @@ private:
 
     mutable std::mutex mutex_;
     std::unordered_map<std::string, MarketTick> latest_ticks_;
-    std::chrono::steady_clock::time_point rate_window_start_;
-    uint32_t rate_window_requests_ = 0;
+    std::unordered_map<std::string, uint64_t> token_expiry_ns_;
+    std::unordered_map<std::string, RateWindowState> rate_windows_;
     std::atomic<uint64_t> ticks_received_{0};
     std::atomic<uint64_t> ticks_decoded_{0};
     std::atomic<uint64_t> decode_errors_{0};

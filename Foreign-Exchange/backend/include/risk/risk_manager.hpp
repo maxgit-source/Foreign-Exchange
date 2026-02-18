@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core/types.h"
+#include "core/fixed_point.hpp"
 #include <atomic>
 
 namespace argentum::risk {
@@ -48,15 +49,17 @@ public:
      * @brief Net executed exposure.
      */
     double filled_exposure() const;
+    int64_t committed_exposure_units() const;
+    int64_t filled_exposure_units() const;
 
 private:
     RiskLimits limits_;
-    std::atomic<double> committed_exposure_{0.0};
-    std::atomic<double> filled_exposure_{0.0};
+    std::atomic<int64_t> committed_exposure_units_{0};
+    std::atomic<int64_t> filled_exposure_units_{0};
     std::atomic<double> daily_pl_{0.0};
     static bool is_valid_order(const Order& order);
-    static double signed_notional(const Order& order);
-    static double atomic_add(std::atomic<double>& target, double delta);
+    static int64_t signed_notional_units(const Order& order);
+    static int64_t atomic_add(std::atomic<int64_t>& target, int64_t delta);
 };
 
 } // namespace argentum::risk

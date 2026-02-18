@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-codex\x64\Release\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-codex\bin\Release\api_gateway_contract_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-codex\bin\Release\api_network_e2e_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-codex\bin\Release\api_order_guard_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-codex\bin\Release\argentum_node.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-codex\bin\Release\argentum_pipeline_benchmark.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-codex\bin\Release\data_writer_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-codex\bin\Release\message_bus_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-codex\bin\Release\message_codec_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-codex\bin\Release\order_flow_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-codex\x64\Release\ALL_BUILD</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

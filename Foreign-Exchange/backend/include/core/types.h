@@ -68,10 +68,12 @@ typedef struct {
     uint64_t timestamp_ns;
     double price;
     double quantity;
+    int64_t price_ticks;      // Fixed-point price for matching/risk critical path.
+    int64_t quantity_lots;    // Fixed-point quantity for matching/risk critical path.
     char symbol[SYMBOL_LEN];
     uint8_t side;
     uint8_t type;
-    uint8_t _padding[6];
+    uint8_t _padding[4];
 } Order;
 
 /**
@@ -84,8 +86,10 @@ typedef struct {
     uint64_t timestamp_ns;
     double price;
     double quantity;
+    int64_t price_ticks;
+    int64_t quantity_lots;
     uint8_t side;          // side of aggressor
-    uint8_t _padding[7];
+    uint8_t _padding[3];
 } Trade;
 
 #ifdef __cplusplus
