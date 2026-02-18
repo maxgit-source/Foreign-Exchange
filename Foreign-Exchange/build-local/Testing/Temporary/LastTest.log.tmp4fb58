@@ -1,0 +1,65 @@
+Start testing: Feb 18 18:07 Hora estándar de Argentina
+----------------------------------------------------------
+1/4 Testing: message_codec_test
+1/4 Test: message_codec_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/bin/Release/message_codec_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/backend/tests
+"message_codec_test" start time: Feb 18 18:07 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"message_codec_test" end time: Feb 18 18:07 Hora estándar de Argentina
+"message_codec_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: message_bus_test
+2/4 Test: message_bus_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/bin/Release/message_bus_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/backend/tests
+"message_bus_test" start time: Feb 18 18:07 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"message_bus_test" end time: Feb 18 18:07 Hora estándar de Argentina
+"message_bus_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: order_flow_test
+3/4 Test: order_flow_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/bin/Release/order_flow_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/backend/tests
+"order_flow_test" start time: Feb 18 18:07 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+[OMS] Order 1001 accepted and placed with remaining 1.
+[OMS] Order 2002 fully processed.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"order_flow_test" end time: Feb 18 18:07 Hora estándar de Argentina
+"order_flow_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: data_writer_test
+4/4 Test: data_writer_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/bin/Release/data_writer_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/backend/tests
+"data_writer_test" start time: Feb 18 18:07 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"data_writer_test" end time: Feb 18 18:07 Hora estándar de Argentina
+"data_writer_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 18 18:07 Hora estándar de Argentina

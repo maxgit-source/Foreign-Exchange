@@ -3,6 +3,8 @@ export interface Ticker {
   price: number;
   change24h: number;
   volume: number;
+  lastUpdateNs?: number;
+  source?: string;
 }
 
 export interface Trade {

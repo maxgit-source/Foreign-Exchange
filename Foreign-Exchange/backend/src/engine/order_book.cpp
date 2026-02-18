@@ -8,17 +8,22 @@ OrderBook::OrderBook(const std::string& symbol) : symbol_(symbol) {}
 
 bool OrderBook::add_order(const Order& order) {
     if (order.quantity <= 0.0) return false;
+    if (order.order_id == 0) return false;
+    if (order.side != SIDE_BUY && order.side != SIDE_SELL) return false;
+    if (order.type == ORDER_TYPE_LIMIT && order.price <= 0.0) return false;
+    if (order.type != ORDER_TYPE_LIMIT && order.price < 0.0) return false;
+    if (order_lookup_.find(order.order_id) != order_lookup_.end()) return false;
 
     if (order.side == SIDE_BUY) {
         auto& level = bids_[order.price];
         level.push_back(order);
         auto it = std::prev(level.end());
-        order_lookup_[order.order_id] = OrderLocator{(Side)order.side, order.price, it};
+        order_lookup_[order.order_id] = OrderLocator{SIDE_BUY, order.price, it};
     } else {
         auto& level = asks_[order.price];
         level.push_back(order);
         auto it = std::prev(level.end());
-        order_lookup_[order.order_id] = OrderLocator{(Side)order.side, order.price, it};
+        order_lookup_[order.order_id] = OrderLocator{SIDE_SELL, order.price, it};
     }
     return true;
 }
@@ -57,6 +62,9 @@ bool OrderBook::cancel_order(uint64_t order_id) {
 std::vector<Trade> OrderBook::match_order(const Order& incoming) {
     std::vector<Trade> trades;
     if (incoming.quantity <= 0.0) return trades;
+    if (incoming.side != SIDE_BUY && incoming.side != SIDE_SELL) return trades;
+    if (incoming.type == ORDER_TYPE_LIMIT && incoming.price <= 0.0) return trades;
+    if (incoming.type != ORDER_TYPE_LIMIT && incoming.price < 0.0) return trades;
 
     double remaining = incoming.quantity;
     if (incoming.side == SIDE_BUY) {
@@ -140,7 +148,7 @@ std::vector<Trade> OrderBook::match_order(const Order& incoming) {
     if (remaining > 0.0 && incoming.type == ORDER_TYPE_LIMIT) {
         Order residual = incoming;
         residual.quantity = remaining;
-        add_order(residual);
+        (void)add_order(residual);
     }
 
     return trades;

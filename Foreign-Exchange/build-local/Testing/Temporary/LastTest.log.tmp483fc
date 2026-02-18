@@ -1,0 +1,97 @@
+Start testing: Feb 18 18:15 Hora estándar de Argentina
+----------------------------------------------------------
+1/6 Testing: message_codec_test
+1/6 Test: message_codec_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/bin/Release/message_codec_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/backend/tests
+"message_codec_test" start time: Feb 18 18:15 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"message_codec_test" end time: Feb 18 18:15 Hora estándar de Argentina
+"message_codec_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: message_bus_test
+2/6 Test: message_bus_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/bin/Release/message_bus_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/backend/tests
+"message_bus_test" start time: Feb 18 18:15 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"message_bus_test" end time: Feb 18 18:15 Hora estándar de Argentina
+"message_bus_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: order_flow_test
+3/6 Test: order_flow_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/bin/Release/order_flow_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/backend/tests
+"order_flow_test" start time: Feb 18 18:15 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+[OMS] Order 1001 accepted and placed with remaining 1.
+[OMS] Order 2002 fully processed.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"order_flow_test" end time: Feb 18 18:15 Hora estándar de Argentina
+"order_flow_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: data_writer_test
+4/6 Test: data_writer_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/bin/Release/data_writer_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/backend/tests
+"data_writer_test" start time: Feb 18 18:15 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"data_writer_test" end time: Feb 18 18:15 Hora estándar de Argentina
+"data_writer_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: api_gateway_contract_test
+5/6 Test: api_gateway_contract_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/bin/Release/api_gateway_contract_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/backend/tests
+"api_gateway_contract_test" start time: Feb 18 18:15 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   1.59 sec
+----------------------------------------------------------
+Test Passed.
+"api_gateway_contract_test" end time: Feb 18 18:15 Hora estándar de Argentina
+"api_gateway_contract_test" time elapsed: 00:00:01
+----------------------------------------------------------
+
+6/6 Testing: api_order_guard_test
+6/6 Test: api_order_guard_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/bin/Release/api_order_guard_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/backend/tests
+"api_order_guard_test" start time: Feb 18 18:15 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+[OMS] Order 9001 accepted and placed with remaining 1.
+[OMS] Order 9002 fully processed.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"api_order_guard_test" end time: Feb 18 18:15 Hora estándar de Argentina
+"api_order_guard_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 18 18:15 Hora estándar de Argentina

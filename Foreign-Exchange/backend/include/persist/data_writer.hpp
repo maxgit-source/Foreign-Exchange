@@ -45,6 +45,7 @@ public:
     void set_csv_fsync(bool enabled);
 
     uint64_t dropped_count() const;
+    uint64_t failed_flush_count() const;
 
 private:
     void worker_loop();
@@ -61,6 +62,7 @@ private:
     size_t queue_capacity_ = 8192;
     OverflowPolicy overflow_policy_ = OverflowPolicy::DropNewest;
     std::atomic<uint64_t> dropped_{0};
+    std::atomic<uint64_t> failed_flushes_{0};
 
     std::string csv_path_ = "data/market_ticks.csv";
     uint64_t csv_max_bytes_ = 64ULL * 1024ULL * 1024ULL;

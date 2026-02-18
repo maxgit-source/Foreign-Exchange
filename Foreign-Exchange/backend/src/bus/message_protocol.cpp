@@ -1,14 +1,14 @@
 #include "bus/message_protocol.hpp"
 
 #include <cstring>
+#include <mutex>
 
 namespace argentum::bus {
 
 static uint32_t crc32_table[256];
-static bool crc32_init = false;
+static std::once_flag crc32_once;
 
 static void init_crc32_table() {
-    if (crc32_init) return;
     for (uint32_t i = 0; i < 256; ++i) {
         uint32_t c = i;
         for (uint32_t j = 0; j < 8; ++j) {
@@ -16,12 +16,11 @@ static void init_crc32_table() {
         }
         crc32_table[i] = c;
     }
-    crc32_init = true;
 }
 
 uint32_t compute_crc32(const uint8_t* data, size_t size) {
     if (!data || size == 0) return 0;
-    init_crc32_table();
+    std::call_once(crc32_once, init_crc32_table);
     uint32_t c = 0xFFFFFFFFU;
     for (size_t i = 0; i < size; ++i) {
         c = crc32_table[(c ^ data[i]) & 0xFFU] ^ (c >> 8);

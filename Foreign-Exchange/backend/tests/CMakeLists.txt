@@ -8,3 +8,23 @@ add_executable(message_bus_test message_bus_test.cpp)
 target_link_libraries(message_bus_test PRIVATE argentum_bus argentum_core)
 
 add_test(NAME message_bus_test COMMAND message_bus_test)
+
+add_executable(order_flow_test order_flow_test.cpp)
+target_link_libraries(order_flow_test PRIVATE argentum_trading argentum_risk argentum_engine argentum_core)
+
+add_test(NAME order_flow_test COMMAND order_flow_test)
+
+add_executable(data_writer_test data_writer_test.cpp)
+target_link_libraries(data_writer_test PRIVATE argentum_persist argentum_core)
+
+add_test(NAME data_writer_test COMMAND data_writer_test)
+
+add_executable(api_gateway_contract_test api_gateway_contract_test.cpp)
+target_link_libraries(api_gateway_contract_test PRIVATE argentum_api argentum_bus argentum_codec argentum_trading argentum_core)
+
+add_test(NAME api_gateway_contract_test COMMAND api_gateway_contract_test)
+
+add_executable(api_order_guard_test api_order_guard_test.cpp)
+target_link_libraries(api_order_guard_test PRIVATE argentum_api argentum_trading argentum_risk argentum_engine argentum_bus argentum_core)
+
+add_test(NAME api_order_guard_test COMMAND api_order_guard_test)

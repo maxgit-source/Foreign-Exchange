@@ -1,0 +1,10 @@
+^C:\USERS\USER\ONEDRIVE\DESKTOP\FOREIGN-EXCHANGE\BUILD-LOCAL\CMAKEFILES\DD82E1BB78A247407F53DF935A6D979C\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/User/OneDrive/Desktop/Foreign-Exchange -BC:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-local/argentum_fx.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

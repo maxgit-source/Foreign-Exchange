@@ -100,8 +100,7 @@ public:
         if (!state) return;
         std::unique_lock lock(state->mutex);
         state->subscribers.push_back(std::move(callback));
-        if (!state->running) {
-            state->running = true;
+        if (state->running && !state->consumers_started) {
             start_consumers(state);
         }
     }
@@ -146,6 +145,7 @@ private:
         std::vector<std::thread> workers;
         TopicMetricsInternal metrics;
         bool running = false;
+        bool consumers_started = false;
     };
 
     TopicState* get_or_create_topic(const std::string& topic) {
@@ -165,18 +165,19 @@ private:
         state->running = true;
         TopicState* ptr = state.get();
         topics_[topic] = std::move(state);
-        start_consumers(ptr);
         return ptr;
     }
 
     void start_consumers(TopicState* state) {
         if (!state) return;
         if (config_.consumer_threads == 0) return;
-        if (state->workers.empty()) {
+        if (state->subscribers.empty()) return;
+        if (!state->consumers_started) {
             uint32_t threads = config_.consumer_threads;
             for (uint32_t i = 0; i < threads; ++i) {
                 state->workers.emplace_back([this, state] { consumer_loop(state); });
             }
+            state->consumers_started = true;
         }
     }
 
@@ -228,6 +229,7 @@ private:
                 if (worker.joinable()) worker.join();
             }
             state->workers.clear();
+            state->consumers_started = false;
         }
     }
 
@@ -236,7 +238,7 @@ private:
     bool is_publisher_ = false;
     InprocBusConfig config_;
     std::unordered_map<std::string, std::unique_ptr<TopicState>> topics_;
-    std::shared_mutex mutex_;
+    mutable std::shared_mutex mutex_;
 };
 
 std::shared_ptr<MessageBus> create_inproc_bus(const InprocBusConfig& config) {

@@ -35,7 +35,7 @@ struct SocketManager {
     WSAPOLLFD fds[MAX_EVENTS];
     SocketEntry entries[MAX_EVENTS];
     size_t count;
-    bool running;
+    volatile LONG running;
     BufferPool pool;
 };
 
@@ -107,7 +107,7 @@ SocketManager* sm_create(void) {
         return NULL;
     }
 
-    sm->running = false;
+    sm->running = 0;
     sm->count = 0;
     pool_init(&sm->pool);
     return sm;
@@ -212,7 +212,7 @@ int sm_connect(SocketManager* sm, const char* ip, uint16_t port, SocketCallback 
     sm->entries[idx].is_connecting = connecting;
 
     if (!connecting && callback) {
-        callback((int)s, EVENT_CONNECT, NULL, 0, context);
+        callback((intptr_t)s, EVENT_CONNECT, NULL, 0, context);
     }
 
     return 0;
@@ -221,16 +221,16 @@ int sm_connect(SocketManager* sm, const char* ip, uint16_t port, SocketCallback 
 static void handle_disconnect(SocketManager* sm, size_t index) {
     SocketEntry* entry = &sm->entries[index];
     if (entry->callback) {
-        entry->callback((int)entry->socket, EVENT_DISCONNECT, NULL, 0, entry->context);
+        entry->callback((intptr_t)entry->socket, EVENT_DISCONNECT, NULL, 0, entry->context);
     }
     sm_remove_at(sm, index);
 }
 
 void sm_run(SocketManager* sm) {
     if (!sm) return;
-    sm->running = true;
+    InterlockedExchange((volatile LONG*)&sm->running, 1);
 
-    while (sm->running) {
+    while (InterlockedCompareExchange((volatile LONG*)&sm->running, 1, 1) == 1) {
         if (sm->count == 0) {
             Sleep(POLL_TIMEOUT_MS);
             continue;
@@ -288,7 +288,7 @@ void sm_run(SocketManager* sm) {
                     sm->entries[idx].is_connecting = false;
 
                     if (entry->callback) {
-                        entry->callback((int)client, EVENT_CONNECT, NULL, 0, entry->context);
+                        entry->callback((intptr_t)client, EVENT_CONNECT, NULL, 0, entry->context);
                     }
                 }
                 continue;
@@ -300,7 +300,7 @@ void sm_run(SocketManager* sm) {
                 if (getsockopt(entry->socket, SOL_SOCKET, SO_ERROR, (char*)&err, &len) == 0 && err == 0) {
                     entry->is_connecting = false;
                     if (entry->callback) {
-                        entry->callback((int)entry->socket, EVENT_CONNECT, NULL, 0, entry->context);
+                        entry->callback((intptr_t)entry->socket, EVENT_CONNECT, NULL, 0, entry->context);
                     }
                 } else {
                     handle_disconnect(sm, i);
@@ -317,7 +317,7 @@ void sm_run(SocketManager* sm) {
                 int received = recv(entry->socket, (char*)target, RECV_BUFFER_SIZE, 0);
                 if (received > 0) {
                     if (entry->callback) {
-                        entry->callback((int)entry->socket, EVENT_READ, target, (size_t)received, entry->context);
+                        entry->callback((intptr_t)entry->socket, EVENT_READ, target, (size_t)received, entry->context);
                     }
                 } else if (received == 0) {
                     handle_disconnect(sm, i);
@@ -338,4 +338,9 @@ void sm_run(SocketManager* sm) {
             }
         }
     }
+}
+
+void sm_stop(SocketManager* sm) {
+    if (!sm) return;
+    InterlockedExchange((volatile LONG*)&sm->running, 0);
 }

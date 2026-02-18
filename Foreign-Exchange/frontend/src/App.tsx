@@ -2,12 +2,27 @@ import { OrderBook } from "@/components/domain/OrderBook";
 import { OrderEntry } from "@/components/domain/OrderEntry";
 import { DepthChart } from "@/components/domain/DepthChart";
 import { useMarketStore } from "@/store/market";
+import { useWebSocket } from "@/hooks/useWebSocket";
+import { appConfig } from "@/lib/config";
+import { fetchHealth } from "@/lib/api";
 import { Toaster, toast } from 'sonner';
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 function App() {
-  const { isConnected } = useMarketStore();
+  const { isConnected, tickers, selectedSymbol } = useMarketStore();
+  const wsUrl = appConfig.apiToken
+    ? `${appConfig.wsUrl}${appConfig.wsUrl.includes('?') ? '&' : '?'}token=${encodeURIComponent(appConfig.apiToken)}`
+    : appConfig.wsUrl;
+  useWebSocket(wsUrl);
+
+  const selectedTicker = tickers[selectedSymbol] ?? Object.values(tickers)[0];
+  const headerSymbol = selectedTicker?.symbol ?? selectedSymbol;
+  const headerPrice = selectedTicker
+    ? selectedTicker.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+    : '--';
+  const change24h = selectedTicker?.change24h ?? 0;
+  const changePositive = change24h >= 0;
 
   // Phase 31: Notifications System Demo
   useEffect(() => {
@@ -15,6 +30,14 @@ function App() {
       toast.success('Connected to Argentum Exchange Core');
     }
   }, [isConnected]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchHealth(controller.signal).catch(() => {
+      toast.warning('API health endpoint unavailable. Running in stream-only mode.');
+    });
+    return () => controller.abort();
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-text flex flex-col font-sans selection:bg-primary/30">
@@ -34,9 +57,11 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-3 text-sm font-mono"
           >
-            <span className="font-bold text-white">BTC-USD</span>
-            <span className="text-accent">45,042.50</span>
-            <span className="text-xs text-accent bg-accent/10 px-1 rounded">+2.4%</span>
+            <span className="font-bold text-white">{headerSymbol}</span>
+            <span className={changePositive ? "text-accent" : "text-danger"}>{headerPrice}</span>
+            <span className={`text-xs px-1 rounded ${changePositive ? 'text-accent bg-accent/10' : 'text-danger bg-danger/10'}`}>
+              {changePositive ? '+' : ''}{change24h.toFixed(2)}%
+            </span>
           </motion.div>
         </div>
         

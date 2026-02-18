@@ -25,7 +25,7 @@ typedef enum {
 } SocketEventType;
 
 // Callback function pointer for handling socket events
-typedef void (*SocketCallback)(int fd, SocketEventType type, void* data, size_t len, void* context);
+typedef void (*SocketCallback)(intptr_t fd, SocketEventType type, void* data, size_t len, void* context);
 
 // --- Interface ---
 
@@ -54,6 +54,11 @@ int sm_connect(SocketManager* sm, const char* ip, uint16_t port, SocketCallback 
  * @brief Runs the event loop. This blocks the calling thread.
  */
 void sm_run(SocketManager* sm);
+
+/**
+ * @brief Requests the event loop to stop.
+ */
+void sm_stop(SocketManager* sm);
 
 #ifdef __cplusplus
 }

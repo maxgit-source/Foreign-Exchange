@@ -49,11 +49,11 @@ void DataWriterService::stop() {
 }
 
 void DataWriterService::set_max_batch(size_t max_batch) {
-    max_batch_ = max_batch;
+    max_batch_ = (max_batch == 0) ? 1 : max_batch;
 }
 
 void DataWriterService::set_flush_interval_ms(uint32_t ms) {
-    flush_interval_ms_ = ms;
+    flush_interval_ms_ = (ms == 0) ? 1 : ms;
 }
 
 void DataWriterService::set_queue_capacity(size_t capacity) {
@@ -80,6 +80,10 @@ uint64_t DataWriterService::dropped_count() const {
     return dropped_.load(std::memory_order_relaxed);
 }
 
+uint64_t DataWriterService::failed_flush_count() const {
+    return failed_flushes_.load(std::memory_order_relaxed);
+}
+
 void DataWriterService::enqueue(const MarketTick& tick) {
     std::unique_lock lock(mutex_);
     if (!running_) return;
@@ -103,7 +107,7 @@ void DataWriterService::enqueue(const MarketTick& tick) {
         }
     }
     queue_.push_back(tick);
-    if (queue_.size() >= max_batch_) {
+    if (queue_.size() >= max_batch_ || queue_.size() == 1) {
         cv_.notify_one();
     }
 }
@@ -134,7 +138,7 @@ void DataWriterService::enqueue_batch(const MarketTick* ticks, size_t count) {
         }
         queue_.push_back(ticks[i]);
     }
-    if (queue_.size() >= max_batch_) {
+    if (queue_.size() >= max_batch_ || !queue_.empty()) {
         cv_.notify_one();
     }
 }
@@ -143,14 +147,17 @@ void DataWriterService::worker_loop() {
     using namespace std::chrono;
     std::vector<MarketTick> batch;
 
-    while (running_) {
+    while (running_ || !queue_.empty()) {
         {
             std::unique_lock lock(mutex_);
             cv_.wait_for(lock, milliseconds(flush_interval_ms_), [&] {
                 return !queue_.empty() || !running_;
             });
-            if (!running_ && queue_.empty()) break;
+            if (queue_.empty()) {
+                continue;
+            }
             size_t count = std::min(max_batch_, queue_.size());
+            batch.clear();
             batch.reserve(count);
             for (size_t i = 0; i < count; ++i) {
                 batch.push_back(queue_.front());
@@ -161,7 +168,6 @@ void DataWriterService::worker_loop() {
 
         if (!batch.empty()) {
             flush_batch(batch);
-            batch.clear();
         }
     }
 }
@@ -179,6 +185,7 @@ void DataWriterService::flush_batch(std::vector<MarketTick>& batch) {
                 PQfinish(pg_conn_);
                 pg_conn_ = nullptr;
             }
+            failed_flushes_.fetch_add(1, std::memory_order_relaxed);
             flush_csv(batch);
             std::this_thread::sleep_for(std::chrono::milliseconds(reconnect_backoff_ms_));
             reconnect_backoff_ms_ = std::min(reconnect_backoff_ms_ * 2, reconnect_backoff_max_ms_);
@@ -192,6 +199,7 @@ void DataWriterService::flush_batch(std::vector<MarketTick>& batch) {
         "FROM STDIN WITH (FORMAT csv)");
     if (!res || PQresultStatus(res) != PGRES_COPY_IN) {
         if (res) PQclear(res);
+        failed_flushes_.fetch_add(1, std::memory_order_relaxed);
         flush_csv(batch);
         return;
     }
@@ -199,6 +207,7 @@ void DataWriterService::flush_batch(std::vector<MarketTick>& batch) {
 
     char line[320];
     char ts_buf[64];
+    bool copy_failed = false;
     for (const auto& tick : batch) {
         argentum::core::format_utc(tick.timestamp_ns, ts_buf, sizeof(ts_buf));
         int written = snprintf(line, sizeof(line),
@@ -210,12 +219,27 @@ void DataWriterService::flush_batch(std::vector<MarketTick>& batch) {
             tick.side == SIDE_BUY ? 'B' : 'S',
             tick.source);
         if (written > 0) {
-            PQputCopyData(pg_conn_, line, written);
+            if (PQputCopyData(pg_conn_, line, written) != 1) {
+                copy_failed = true;
+                break;
+            }
         }
     }
-    PQputCopyEnd(pg_conn_, NULL);
+    if (PQputCopyEnd(pg_conn_, copy_failed ? "copy data failed" : NULL) != 1) {
+        copy_failed = true;
+    }
+
+    bool result_failed = false;
     while ((res = PQgetResult(pg_conn_)) != NULL) {
+        if (PQresultStatus(res) != PGRES_COMMAND_OK) {
+            result_failed = true;
+        }
         PQclear(res);
+    }
+
+    if (copy_failed || result_failed) {
+        failed_flushes_.fetch_add(1, std::memory_order_relaxed);
+        flush_csv(batch);
     }
 #else
     flush_csv(batch);

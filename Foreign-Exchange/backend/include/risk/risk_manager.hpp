@@ -2,7 +2,6 @@
 
 #include "core/types.h"
 #include <atomic>
-#include <mutex>
 
 namespace argentum::risk {
 
@@ -35,14 +34,28 @@ public:
      */
     void on_fill(const Order& order);
 
+    /**
+     * @brief Releases reserved exposure for canceled/unfilled quantity.
+     */
+    void on_cancel(const Order& order);
+
+    /**
+     * @brief Current reserved+active exposure tracked by risk checks.
+     */
+    double committed_exposure() const;
+
+    /**
+     * @brief Net executed exposure.
+     */
+    double filled_exposure() const;
+
 private:
     RiskLimits limits_;
-    std::atomic<double> current_exposure_{0.0};
+    std::atomic<double> committed_exposure_{0.0};
+    std::atomic<double> filled_exposure_{0.0};
     std::atomic<double> daily_pl_{0.0};
-    
-    // Mutex not needed for atomics, but needed if limits change dynamically
-    mutable std::mutex mtx_; 
-
+    static bool is_valid_order(const Order& order);
+    static double signed_notional(const Order& order);
     static double atomic_add(std::atomic<double>& target, double delta);
 };
 

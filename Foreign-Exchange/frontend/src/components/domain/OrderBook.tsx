@@ -1,5 +1,4 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 
 const ASKS = [
   { price: 45050.5, size: 0.5, total: 0.5 },

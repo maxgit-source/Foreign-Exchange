@@ -17,6 +17,7 @@
 #include "alerts/alert_system.hpp"
 #include "system/cpu_utils.hpp"
 #include "audit/logger.hpp"
+#include "api/market_gateway.hpp"
 
 int main() {
     // 1. System Init
@@ -47,6 +48,8 @@ int main() {
         if (argentum::codec::decode_market_tick(data, size, &tick) != ARGENTUM_OK) return;
         writer.enqueue(tick);
     });
+    argentum::api::MarketGatewayService gateway(bus);
+    gateway.start();
 
     argentum::datafeed::FeedPlayer player(bus, "market.ticks");
     size_t published = player.play_file("data/sample_ticks.jsonl", FEED_FORMAT_JSON, 0);
@@ -78,6 +81,15 @@ int main() {
         }
     }
     std::cout << "[Datafeed] Published " << published << " ticks." << std::endl;
+    for (int i = 0; i < 20; ++i) {
+        MarketTick latest{};
+        if (gateway.get_latest_tick("BTC/USDT", &latest)) {
+            break;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(5));
+    }
+    std::cout << "[API] Snapshot BTC/USDT: " << gateway.latest_tick_json("BTC/USDT") << std::endl;
+    std::cout << "[API] Health: " << gateway.health_json() << std::endl;
 
     // 4. Latency Benchmark (Phase 16)
     argentum::benchmark::LatencyTester tester;
@@ -89,6 +101,7 @@ int main() {
 
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
     writer.stop();
+    gateway.stop();
 
     return 0;
 }

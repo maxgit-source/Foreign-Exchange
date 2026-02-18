@@ -78,6 +78,8 @@ add_library(argentum_persist STATIC ${PERSIST_SOURCES})
 target_include_directories(argentum_persist PUBLIC include)
 target_link_libraries(argentum_persist PUBLIC argentum_core)
 
+add_subdirectory(api)
+
 # Executable
 add_executable(argentum_node src/main.cpp)
 target_link_libraries(argentum_node PRIVATE 
@@ -90,6 +92,7 @@ target_link_libraries(argentum_node PRIVATE
     argentum_codec
     argentum_persist
     argentum_backtest
+    argentum_api
     argentum_core
 )
 

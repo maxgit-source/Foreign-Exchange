@@ -97,18 +97,34 @@ static ArgentumStatus parse_json(const char* data, size_t len, MarketTick* out) 
     if (normalize_symbol(raw_symbol, out->symbol, sizeof(out->symbol)) != ARGENTUM_OK) return ARGENTUM_ERR_INVALID;
 
     char side_str[8] = {0};
-    if (parse_string(k_side + 1, end, side_str, sizeof(side_str)) != ARGENTUM_OK) return ARGENTUM_ERR_PARSE;
+    ArgentumStatus side_status = parse_string(k_side + 1, end, side_str, sizeof(side_str));
+    if (side_status != ARGENTUM_OK) {
+        uint64_t numeric_side = 0;
+        if (parse_u64(k_side + 1, end, &numeric_side) == ARGENTUM_OK) {
+            if (numeric_side == 1) {
+                out->side = SIDE_BUY;
+            } else if (numeric_side == 2) {
+                out->side = SIDE_SELL;
+            } else {
+                return ARGENTUM_ERR_PARSE;
+            }
+        } else {
+            return ARGENTUM_ERR_PARSE;
+        }
+    }
 
-    if (side_str[0] == 'B' || side_str[0] == 'b' || strcmp(side_str, "BUY") == 0 || strcmp(side_str, "buy") == 0) {
-        out->side = SIDE_BUY;
-    } else if (side_str[0] == 'S' || side_str[0] == 's' || strcmp(side_str, "SELL") == 0 || strcmp(side_str, "sell") == 0) {
-        out->side = SIDE_SELL;
-    } else if (side_str[0] == '1') {
-        out->side = SIDE_BUY;
-    } else if (side_str[0] == '2') {
-        out->side = SIDE_SELL;
-    } else {
-        return ARGENTUM_ERR_PARSE;
+    if (side_status == ARGENTUM_OK) {
+        if (side_str[0] == 'B' || side_str[0] == 'b' || strcmp(side_str, "BUY") == 0 || strcmp(side_str, "buy") == 0) {
+            out->side = SIDE_BUY;
+        } else if (side_str[0] == 'S' || side_str[0] == 's' || strcmp(side_str, "SELL") == 0 || strcmp(side_str, "sell") == 0) {
+            out->side = SIDE_SELL;
+        } else if (side_str[0] == '1') {
+            out->side = SIDE_BUY;
+        } else if (side_str[0] == '2') {
+            out->side = SIDE_SELL;
+        } else {
+            return ARGENTUM_ERR_PARSE;
+        }
     }
 
     if (k_source) {
