@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\api_gateway_contract_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\api_network_e2e_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\api_order_guard_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\argentum_node.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\argentum_pipeline_benchmark.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\argentum_replay.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\data_writer_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\event_journal_replay_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\execution_quality_report_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\fix_adapter_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\market_simulator_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\message_bus_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\message_codec_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\order_concurrency_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\order_flow_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\order_tif_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\risk_reservation_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\router_l2_reroute_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\bin\Release\smart_router_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-phase23v2\x64\Release\ALL_BUILD</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

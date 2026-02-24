@@ -10,6 +10,12 @@
 #include <unordered_map>
 #include <vector>
 
+namespace argentum::persist {
+class EventJournal;
+struct JournalEvent;
+enum class JournalEventType : uint8_t;
+}
+
 namespace argentum::trading {
 
 enum class OrderRejectReason {
@@ -17,7 +23,8 @@ enum class OrderRejectReason {
     InvalidOrder = 1,
     DuplicateOrderId = 2,
     RiskRejected = 3,
-    InternalError = 4
+    InternalError = 4,
+    LiquidityUnavailable = 5
 };
 
 enum class OrderStatus {
@@ -56,7 +63,8 @@ struct OrderSubmissionResult {
 class OrderManager {
 public:
     OrderManager(std::shared_ptr<risk::RiskManager> risk, 
-                 std::shared_ptr<engine::OrderBook> book);
+                 std::shared_ptr<engine::OrderBook> book,
+                 std::shared_ptr<persist::EventJournal> journal = nullptr);
 
     /**
      * @brief Entry point for new orders from API/Strategy.
@@ -71,11 +79,14 @@ public:
 
 private:
     static bool is_valid_order(const Order& order);
+    // Internal helpers; caller must hold mutex_.
     void upsert_state(const OrderState& state);
     void apply_trade_to_maker(uint64_t maker_order_id, const Trade& trade);
+    void emit_event_unlocked(persist::JournalEvent&& event);
 
     std::shared_ptr<risk::RiskManager> risk_manager_;
     std::shared_ptr<engine::OrderBook> order_book_;
+    std::shared_ptr<persist::EventJournal> journal_;
     mutable std::mutex mutex_;
     std::unordered_map<uint64_t, OrderState> active_orders_;
     std::unordered_map<uint64_t, OrderState> order_history_;

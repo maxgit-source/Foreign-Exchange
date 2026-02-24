@@ -1,0 +1,33 @@
+Start testing: Feb 24 16:13 Hora estándar de Argentina
+----------------------------------------------------------
+15/16 Testing: router_l2_reroute_test
+15/16 Test: router_l2_reroute_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23v2/bin/Release/router_l2_reroute_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23v2/backend/tests
+"router_l2_reroute_test" start time: Feb 24 16:13 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"router_l2_reroute_test" end time: Feb 24 16:13 Hora estándar de Argentina
+"router_l2_reroute_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/16 Testing: execution_quality_report_test
+16/16 Test: execution_quality_report_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23v2/bin/Release/execution_quality_report_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23v2/backend/tests
+"execution_quality_report_test" start time: Feb 24 16:13 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"execution_quality_report_test" end time: Feb 24 16:13 Hora estándar de Argentina
+"execution_quality_report_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 24 16:13 Hora estándar de Argentina

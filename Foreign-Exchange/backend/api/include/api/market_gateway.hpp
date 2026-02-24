@@ -11,6 +11,10 @@
 #include <string>
 #include <unordered_map>
 
+namespace argentum::persist {
+class EventJournal;
+}
+
 namespace argentum::api {
 
 struct RateLimitConfig {
@@ -57,7 +61,8 @@ public:
     MarketGatewayService(
         std::shared_ptr<bus::MessageBus> bus,
         std::string market_topic = "market.ticks",
-        GatewaySecurityConfig security = {});
+        GatewaySecurityConfig security = {},
+        std::shared_ptr<persist::EventJournal> journal = nullptr);
 
     void start();
     void stop();
@@ -74,6 +79,11 @@ public:
     bool revoke_token(const std::string& token);
     bool rotate_token(const std::string& old_token, const std::string& new_token, uint64_t ttl_ms = 0);
     void record_order_result(bool accepted);
+    void emit_gateway_reject_event(
+        uint64_t order_id,
+        const Order& order,
+        GatewayRejectReason reason,
+        const std::string& token);
     GatewayMetrics metrics() const;
     void reset_metrics();
 
@@ -89,6 +99,7 @@ private:
     static std::string normalize_key(const char* symbol);
 
     std::shared_ptr<bus::MessageBus> bus_;
+    std::shared_ptr<persist::EventJournal> journal_;
     std::string market_topic_;
     GatewaySecurityConfig security_;
     std::atomic<bool> started_{false};

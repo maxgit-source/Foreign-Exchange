@@ -14,6 +14,21 @@ target_link_libraries(order_flow_test PRIVATE argentum_trading argentum_risk arg
 
 add_test(NAME order_flow_test COMMAND order_flow_test)
 
+add_executable(order_tif_test order_tif_test.cpp)
+target_link_libraries(order_tif_test PRIVATE argentum_trading argentum_risk argentum_engine argentum_core)
+
+add_test(NAME order_tif_test COMMAND order_tif_test)
+
+add_executable(order_concurrency_test order_concurrency_test.cpp)
+target_link_libraries(order_concurrency_test PRIVATE argentum_trading argentum_risk argentum_engine argentum_core)
+
+add_test(NAME order_concurrency_test COMMAND order_concurrency_test)
+
+add_executable(risk_reservation_test risk_reservation_test.cpp)
+target_link_libraries(risk_reservation_test PRIVATE argentum_risk argentum_core)
+
+add_test(NAME risk_reservation_test COMMAND risk_reservation_test)
+
 add_executable(data_writer_test data_writer_test.cpp)
 target_link_libraries(data_writer_test PRIVATE argentum_persist argentum_core)
 
@@ -44,3 +59,40 @@ if(WIN32)
 endif()
 
 add_test(NAME api_network_e2e_test COMMAND api_network_e2e_test)
+
+add_executable(event_journal_replay_test event_journal_replay_test.cpp)
+target_link_libraries(event_journal_replay_test PRIVATE
+  argentum_api
+  argentum_persist
+  argentum_trading
+  argentum_risk
+  argentum_engine
+  argentum_bus
+  argentum_codec
+  argentum_core
+)
+add_test(NAME event_journal_replay_test COMMAND event_journal_replay_test)
+
+add_executable(fix_adapter_test fix_adapter_test.cpp)
+target_link_libraries(fix_adapter_test PRIVATE
+  argentum_gateway
+  argentum_datafeed
+  argentum_core
+)
+add_test(NAME fix_adapter_test COMMAND fix_adapter_test)
+
+add_executable(smart_router_test smart_router_test.cpp)
+target_link_libraries(smart_router_test PRIVATE argentum_gateway argentum_core)
+add_test(NAME smart_router_test COMMAND smart_router_test)
+
+add_executable(market_simulator_test market_simulator_test.cpp)
+target_link_libraries(market_simulator_test PRIVATE argentum_gateway argentum_core)
+add_test(NAME market_simulator_test COMMAND market_simulator_test)
+
+add_executable(router_l2_reroute_test router_l2_reroute_test.cpp)
+target_link_libraries(router_l2_reroute_test PRIVATE argentum_gateway argentum_core)
+add_test(NAME router_l2_reroute_test COMMAND router_l2_reroute_test)
+
+add_executable(execution_quality_report_test execution_quality_report_test.cpp)
+target_link_libraries(execution_quality_report_test PRIVATE argentum_gateway argentum_core)
+add_test(NAME execution_quality_report_test COMMAND execution_quality_report_test)

@@ -6,8 +6,14 @@ set(BUS_SOURCES src/bus/message_bus.cpp src/bus/message_protocol.cpp)
 set(ENGINE_SOURCES src/engine/order_book.cpp)
 set(RISK_SOURCES src/risk/risk_manager.cpp)
 set(TRADING_SOURCES src/trading/order_manager.cpp)
+set(GATEWAY_SOURCES
+    src/gateway/fix_adapter.cpp
+    src/gateway/smart_order_router.cpp
+    src/gateway/market_simulator.cpp
+    src/gateway/execution_quality.cpp
+)
 set(BACKTEST_SOURCES src/backtest/backtest_engine.cpp)
-set(PERSIST_SOURCES src/persist/data_writer.cpp)
+set(PERSIST_SOURCES src/persist/data_writer.cpp src/persist/event_journal.cpp)
 set(CODEC_SOURCES src/codec/market_tick_codec.cpp)
 # New modules are header-only for now, but added to includes
 
@@ -70,6 +76,10 @@ add_library(argentum_trading STATIC ${TRADING_SOURCES})
 target_include_directories(argentum_trading PUBLIC include)
 target_link_libraries(argentum_trading PUBLIC argentum_risk argentum_engine argentum_core)
 
+add_library(argentum_gateway STATIC ${GATEWAY_SOURCES})
+target_include_directories(argentum_gateway PUBLIC include)
+target_link_libraries(argentum_gateway PUBLIC argentum_core)
+
 add_library(argentum_backtest STATIC ${BACKTEST_SOURCES})
 target_include_directories(argentum_backtest PUBLIC include)
 target_link_libraries(argentum_backtest PUBLIC argentum_core)
@@ -77,6 +87,7 @@ target_link_libraries(argentum_backtest PUBLIC argentum_core)
 add_library(argentum_persist STATIC ${PERSIST_SOURCES})
 target_include_directories(argentum_persist PUBLIC include)
 target_link_libraries(argentum_persist PUBLIC argentum_core)
+target_link_libraries(argentum_trading PUBLIC argentum_persist)
 
 add_subdirectory(api)
 
@@ -93,13 +104,23 @@ target_link_libraries(argentum_node PRIVATE
     argentum_persist
     argentum_backtest
     argentum_api
+    argentum_gateway
     argentum_core
 )
+if(WIN32)
+    target_link_libraries(argentum_node PRIVATE ws2_32)
+endif()
 
 add_executable(argentum_pipeline_benchmark src/benchmark/pipeline_benchmark.cpp)
 target_link_libraries(argentum_pipeline_benchmark PRIVATE
     argentum_bus
     argentum_codec
+    argentum_persist
+    argentum_core
+)
+
+add_executable(argentum_replay src/replay/replay_main.cpp)
+target_link_libraries(argentum_replay PRIVATE
     argentum_persist
     argentum_core
 )

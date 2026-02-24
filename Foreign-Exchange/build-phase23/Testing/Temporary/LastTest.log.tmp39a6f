@@ -1,0 +1,21 @@
+Start testing: Feb 24 14:31 Hora estándar de Argentina
+----------------------------------------------------------
+11/14 Testing: event_journal_replay_test
+11/14 Test: event_journal_replay_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/event_journal_replay_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"event_journal_replay_test" start time: Feb 24 14:31 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+[OMS] Order 1001 accepted and placed with remaining 1.
+[OMS] Order 1002 fully processed.
+CHECK failed: summary.monotonic_time line=97
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Failed.
+"event_journal_replay_test" end time: Feb 24 14:31 Hora estándar de Argentina
+"event_journal_replay_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 24 14:31 Hora estándar de Argentina

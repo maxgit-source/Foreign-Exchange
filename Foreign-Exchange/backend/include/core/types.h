@@ -33,6 +33,12 @@ typedef enum {
     ORDER_TYPE_STOP = 3
 } OrderType;
 
+typedef enum {
+    TIF_GTC = 1, // Good-Till-Cancel
+    TIF_IOC = 2, // Immediate-Or-Cancel
+    TIF_FOK = 3  // Fill-Or-Kill
+} TimeInForce;
+
 // --- Data Structures ---
 // Alignment: cache-line aligned for hot-path structs.
 // Usage of fixed-size arrays avoids pointer chasing.
@@ -73,7 +79,8 @@ typedef struct {
     char symbol[SYMBOL_LEN];
     uint8_t side;
     uint8_t type;
-    uint8_t _padding[4];
+    uint8_t tif;
+    uint8_t _padding[3];
 } Order;
 
 /**

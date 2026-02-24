@@ -14,8 +14,17 @@ bool OrderBook::add_order(const Order& order) {
     if (normalized.quantity_lots <= 0) return false;
     if (order.order_id == 0) return false;
     if (normalized.side != SIDE_BUY && normalized.side != SIDE_SELL) return false;
-    if (normalized.type == ORDER_TYPE_LIMIT && normalized.price_ticks <= 0) return false;
-    if (normalized.type != ORDER_TYPE_LIMIT && normalized.price_ticks < 0) return false;
+    if (normalized.type != ORDER_TYPE_MARKET &&
+        normalized.type != ORDER_TYPE_LIMIT &&
+        normalized.type != ORDER_TYPE_STOP) {
+        return false;
+    }
+    if (normalized.tif != TIF_GTC &&
+        normalized.tif != TIF_IOC &&
+        normalized.tif != TIF_FOK) {
+        return false;
+    }
+    if (normalized.price_ticks <= 0) return false;
     if (order_lookup_.find(order.order_id) != order_lookup_.end()) return false;
 
     if (normalized.side == SIDE_BUY) {
@@ -138,15 +147,24 @@ bool OrderBook::get_order(uint64_t order_id, Order* out_order) const {
     return get_from_level(asks_);
 }
 
-std::vector<Trade> OrderBook::match_order(const Order& incoming) {
+std::vector<Trade> OrderBook::match_order(const Order& incoming, bool rest_residual) {
     std::vector<Trade> trades;
     Order normalized = incoming;
     core::normalize_order_scalars(&normalized);
 
     if (normalized.quantity_lots <= 0) return trades;
     if (normalized.side != SIDE_BUY && normalized.side != SIDE_SELL) return trades;
-    if (normalized.type == ORDER_TYPE_LIMIT && normalized.price_ticks <= 0) return trades;
-    if (normalized.type != ORDER_TYPE_LIMIT && normalized.price_ticks < 0) return trades;
+    if (normalized.type != ORDER_TYPE_MARKET &&
+        normalized.type != ORDER_TYPE_LIMIT &&
+        normalized.type != ORDER_TYPE_STOP) {
+        return trades;
+    }
+    if (normalized.tif != TIF_GTC &&
+        normalized.tif != TIF_IOC &&
+        normalized.tif != TIF_FOK) {
+        return trades;
+    }
+    if (normalized.price_ticks <= 0) return trades;
 
     int64_t remaining_lots = normalized.quantity_lots;
     if (normalized.side == SIDE_BUY) {
@@ -233,7 +251,7 @@ std::vector<Trade> OrderBook::match_order(const Order& incoming) {
         }
     }
 
-    if (remaining_lots > 0 && normalized.type == ORDER_TYPE_LIMIT) {
+    if (rest_residual && remaining_lots > 0 && normalized.type == ORDER_TYPE_LIMIT) {
         Order residual = normalized;
         residual.quantity_lots = remaining_lots;
         residual.quantity = core::from_quantity_lots(remaining_lots);
@@ -241,6 +259,54 @@ std::vector<Trade> OrderBook::match_order(const Order& incoming) {
     }
 
     return trades;
+}
+
+int64_t OrderBook::executable_lots(const Order& incoming) const {
+    Order normalized = incoming;
+    core::normalize_order_scalars(&normalized);
+
+    if (normalized.quantity_lots <= 0) return 0;
+    if (normalized.side != SIDE_BUY && normalized.side != SIDE_SELL) return 0;
+    if (normalized.type != ORDER_TYPE_MARKET &&
+        normalized.type != ORDER_TYPE_LIMIT &&
+        normalized.type != ORDER_TYPE_STOP) {
+        return 0;
+    }
+    if (normalized.tif != TIF_GTC &&
+        normalized.tif != TIF_IOC &&
+        normalized.tif != TIF_FOK) {
+        return 0;
+    }
+    if (normalized.price_ticks <= 0) return 0;
+
+    int64_t remaining_lots = normalized.quantity_lots;
+    int64_t filled_lots = 0;
+
+    if (normalized.side == SIDE_BUY) {
+        for (auto it = asks_.begin(); it != asks_.end() && remaining_lots > 0; ++it) {
+            const int64_t level_price_ticks = it->first;
+            if (normalized.type == ORDER_TYPE_LIMIT && level_price_ticks > normalized.price_ticks) break;
+            for (const auto& resting : it->second) {
+                if (remaining_lots <= 0) break;
+                const int64_t take = std::min(remaining_lots, resting.quantity_lots);
+                filled_lots += take;
+                remaining_lots -= take;
+            }
+        }
+    } else {
+        for (auto it = bids_.begin(); it != bids_.end() && remaining_lots > 0; ++it) {
+            const int64_t level_price_ticks = it->first;
+            if (normalized.type == ORDER_TYPE_LIMIT && level_price_ticks < normalized.price_ticks) break;
+            for (const auto& resting : it->second) {
+                if (remaining_lots <= 0) break;
+                const int64_t take = std::min(remaining_lots, resting.quantity_lots);
+                filled_lots += take;
+                remaining_lots -= take;
+            }
+        }
+    }
+
+    return filled_lots;
 }
 
 std::optional<double> OrderBook::get_best_bid() const {

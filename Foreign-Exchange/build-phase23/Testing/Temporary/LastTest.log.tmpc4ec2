@@ -1,0 +1,1826 @@
+Start testing: Feb 24 14:33 Hora estándar de Argentina
+----------------------------------------------------------
+1/14 Testing: message_codec_test
+1/14 Test: message_codec_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/message_codec_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"message_codec_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"message_codec_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"message_codec_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/14 Testing: message_bus_test
+2/14 Test: message_bus_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/message_bus_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"message_bus_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"message_bus_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"message_bus_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/14 Testing: order_flow_test
+3/14 Test: order_flow_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/order_flow_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"order_flow_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+[OMS] Order 1001 accepted and placed with remaining 1.
+[OMS] Order 2002 fully processed.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"order_flow_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"order_flow_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/14 Testing: order_tif_test
+4/14 Test: order_tif_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/order_tif_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"order_tif_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+[OMS] Order 1001 accepted and placed with remaining 1.
+[OMS] Order 1002 accepted and placed with remaining 1.
+[OMS] Order 2001 fully processed.
+[OMS] Order 2002 fully processed.
+[OMS] Order 3001 accepted and placed with remaining 1.
+[OMS] Order 4001 accepted and placed with remaining 2.
+[OMS] Order 4002 fully processed.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"order_tif_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"order_tif_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/14 Testing: order_concurrency_test
+5/14 Test: order_concurrency_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/order_concurrency_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"order_concurrency_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+[OMS] Order 100001 accepted and placed with remaining 1.
+[OMS] Order 100001 canceled.
+[OMS] Order 300001 accepted and placed with remaining 1.
+[OMS] Order 300001 canceled.
+[OMS] Order 300002 accepted and placed with remaining 1.
+[OMS] Order 300002 canceled.
+[OMS] Order 300003 accepted and placed with remaining 1.
+[OMS] Order 300003 canceled.
+[OMS] Order 300004 accepted and placed with remaining 1.
+[OMS] Order 300004 canceled.
+[OMS] Order 300005 accepted and placed with remaining 1.
+[OMS] Order 300005 canceled.
+[OMS] Order 300006 accepted and placed with remaining 1.
+[OMS] Order 300006 canceled.
+[OMS] Order 300007 accepted and placed with remaining 1.
+[OMS] Order 300007 canceled.
+[OMS] Order 300008 accepted and placed with remaining 1.
+[OMS] Order 300008 canceled.
+[OMS] Order 100002 accepted and placed with remaining 1.
+[OMS] Order 100002 canceled.
+[OMS] Order 300009 accepted and placed with remaining 1.
+[OMS] Order 300009 canceled.
+[OMS] Order 300010 accepted and placed with remaining 1.
+[OMS] Order 300010 canceled.
+[OMS] Order 300011 accepted and placed with remaining 1.
+[OMS] Order 300011 canceled.
+[OMS] Order 300012 accepted and placed with remaining 1.
+[OMS] Order 300012 canceled.
+[OMS] Order 300013 accepted and placed with remaining 1.
+[OMS] Order 300013 canceled.
+[OMS] Order 300014 accepted and placed with remaining 1.
+[OMS] Order 300014 canceled.
+[OMS] Order 300015 accepted and placed with remaining 1.
+[OMS] Order 300015 canceled.
+[OMS] Order 300016 accepted and placed with remaining 1.
+[OMS] Order 300016 canceled.
+[OMS] Order 300017 accepted and placed with remaining 1.
+[OMS] Order 300017 canceled.
+[OMS] Order 300018 accepted and placed with remaining 1.
+[OMS] Order 300018 canceled.
+[OMS] Order 300019 accepted and placed with remaining 1.
+[OMS] Order 300019 canceled.
+[OMS] Order 300020 accepted and placed with remaining 1.
+[OMS] Order 300020 canceled.
+[OMS] Order 300021 accepted and placed with remaining 1.
+[OMS] Order 300021 canceled.
+[OMS] Order 300022 accepted and placed with remaining 1.
+[OMS] Order 300022 canceled.
+[OMS] Order 300023 accepted and placed with remaining 1.
+[OMS] Order 300023 canceled.
+[OMS] Order 300024 accepted and placed with remaining 1.
+[OMS] Order 300024 canceled.
+[OMS] Order 300025 accepted and placed with remaining 1.
+[OMS] Order 300025 canceled.
+[OMS] Order 300026 accepted and placed with remaining 1.
+[OMS] Order 300026 canceled.
+[OMS] Order 300027 accepted and placed with remaining 1.
+[OMS] Order 300027 canceled.
+[OMS] Order 300028 accepted and placed with remaining 1.
+[OMS] Order 300028 canceled.
+[OMS] Order 300029 accepted and placed with remaining 1.
+[OMS] Order 300029 canceled.
+[OMS] Order 300030 accepted and placed with remaining 1.
+[OMS] Order 300030 canceled.
+[OMS] Order 300031 accepted and placed with remaining 1.
+[OMS] Order 200001 accepted and placed with remaining 1.
+[OMS] Order 1 accepted and placed with remaining 1.
+[OMS] Order 1 canceled.
+[OMS] Order 2 accepted and placed with remaining 1.
+[OMS] Order 200001 canceled.
+[OMS] Order 200002 accepted and placed with remaining 1.
+[OMS] Order 200002 canceled.
+[OMS] Order 200003 accepted and placed with remaining 1.
+[OMS] Order 200003 canceled.
+[OMS] Order 200004 accepted and placed with remaining 1.
+[OMS] Order 200004 canceled.
+[OMS] Order 200005 accepted and placed with remaining 1.
+[OMS] Order 200005 canceled.
+[OMS] Order 200006 accepted and placed with remaining 1.
+[OMS] Order 200006 canceled.
+[OMS] Order 200007 accepted and placed with remaining 1.
+[OMS] Order 200007 canceled.
+[OMS] Order 200008 accepted and placed with remaining 1.
+[OMS] Order 200008 canceled.
+[OMS] Order 200009 accepted and placed with remaining 1.
+[OMS] Order 200009 canceled.
+[OMS] Order 200010 accepted and placed with remaining 1.
+[OMS] Order 200010 canceled.
+[OMS] Order 200011 accepted and placed with remaining 1.
+[OMS] Order 200011 canceled.
+[OMS] Order 200012 accepted and placed with remaining 1.
+[OMS] Order 200012 canceled.
+[OMS] Order 200013 accepted and placed with remaining 1.
+[OMS] Order 200013 canceled.
+[OMS] Order 200014 accepted and placed with remaining 1.
+[OMS] Order 200014 canceled.
+[OMS] Order 200015 accepted and placed with remaining 1.
+[OMS] Order 200015 canceled.
+[OMS] Order 200016 accepted and placed with remaining 1.
+[OMS] Order 200016 canceled.
+[OMS] Order 200017 accepted and placed with remaining 1.
+[OMS] Order 200017 canceled.
+[OMS] Order 200018 accepted and placed with remaining 1.
+[OMS] Order 200018 canceled.
+[OMS] Order 200019 accepted and placed with remaining 1.
+[OMS] Order 200019 canceled.
+[OMS] Order 200020 accepted and placed with remaining 1.
+[OMS] Order 200020 canceled.
+[OMS] Order 200021 accepted and placed with remaining 1.
+[OMS] Order 200021 canceled.
+[OMS] Order 200022 accepted and placed with remaining 1.
+[OMS] Order 200022 canceled.
+[OMS] Order 200023 accepted and placed with remaining 1.
+[OMS] Order 200023 canceled.
+[OMS] Order 200024 accepted and placed with remaining 1.
+[OMS] Order 200024 canceled.
+[OMS] Order 200025 accepted and placed with remaining 1.
+[OMS] Order 200025 canceled.
+[OMS] Order 200026 accepted and placed with remaining 1.
+[OMS] Order 200026 canceled.
+[OMS] Order 200027 accepted and placed with remaining 1.
+[OMS] Order 200027 canceled.
+[OMS] Order 200028 accepted and placed with remaining 1.
+[OMS] Order 200028 canceled.
+[OMS] Order 200029 accepted and placed with remaining 1.
+[OMS] Order 200029 canceled.
+[OMS] Order 200030 accepted and placed with remaining 1.
+[OMS] Order 200030 canceled.
+[OMS] Order 200031 accepted and placed with remaining 1.
+[OMS] Order 200031 canceled.
+[OMS] Order 200032 accepted and placed with remaining 1.
+[OMS] Order 200032 canceled.
+[OMS] Order 200033 accepted and placed with remaining 1.
+[OMS] Order 200033 canceled.
+[OMS] Order 200034 accepted and placed with remaining 1.
+[OMS] Order 200034 canceled.
+[OMS] Order 200035 accepted and placed with remaining 1.
+[OMS] Order 200035 canceled.
+[OMS] Order 200036 accepted and placed with remaining 1.
+[OMS] Order 200036 canceled.
+[OMS] Order 200037 accepted and placed with remaining 1.
+[OMS] Order 200037 canceled.
+[OMS] Order 200038 accepted and placed with remaining 1.
+[OMS] Order 200038 canceled.
+[OMS] Order 200039 accepted and placed with remaining 1.
+[OMS] Order 200039 canceled.
+[OMS] Order 200040 accepted and placed with remaining 1.
+[OMS] Order 2 canceled.
+[OMS] Order 3 accepted and placed with remaining 1.
+[OMS] Order 3 canceled.
+[OMS] Order 4 accepted and placed with remaining 1.
+[OMS] Order 4 canceled.
+[OMS] Order 5 accepted and placed with remaining 1.
+[OMS] Order 5 canceled.
+[OMS] Order 6 accepted and placed with remaining 1.
+[OMS] Order 6 canceled.
+[OMS] Order 7 accepted and placed with remaining 1.
+[OMS] Order 7 canceled.
+[OMS] Order 8 accepted and placed with remaining 1.
+[OMS] Order 8 canceled.
+[OMS] Order 9 accepted and placed with remaining 1.
+[OMS] Order 9 canceled.
+[OMS] Order 10 accepted and placed with remaining 1.
+[OMS] Order 10 canceled.
+[OMS] Order 11 accepted and placed with remaining 1.
+[OMS] Order 11 canceled.
+[OMS] Order 12 accepted and placed with remaining 1.
+[OMS] Order 12 canceled.
+[OMS] Order 13 accepted and placed with remaining 1.
+[OMS] Order 13 canceled.
+[OMS] Order 14 accepted and placed with remaining 1.
+[OMS] Order 14 canceled.
+[OMS] Order 15 accepted and placed with remaining 1.
+[OMS] Order 15 canceled.
+[OMS] Order 16 accepted and placed with remaining 1.
+[OMS] Order 16 canceled.
+[OMS] Order 17 accepted and placed with remaining 1.
+[OMS] Order 17 canceled.
+[OMS] Order 18 accepted and placed with remaining 1.
+[OMS] Order 18 canceled.
+[OMS] Order 19 accepted and placed with remaining 1.
+[OMS] Order 19 canceled.
+[OMS] Order 20 accepted and placed with remaining 1.
+[OMS] Order 20 canceled.
+[OMS] Order 21 accepted and placed with remaining 1.
+[OMS] Order 21 canceled.
+[OMS] Order 22 accepted and placed with remaining 1.
+[OMS] Order 22 canceled.
+[OMS] Order 23 accepted and placed with remaining 1.
+[OMS] Order 23 canceled.
+[OMS] Order 24 accepted and placed with remaining 1.
+[OMS] Order 24 canceled.
+[OMS] Order 25 accepted and placed with remaining 1.
+[OMS] Order 25 canceled.
+[OMS] Order 26 accepted and placed with remaining 1.
+[OMS] Order 26 canceled.
+[OMS] Order 27 accepted and placed with remaining 1.
+[OMS] Order 27 canceled.
+[OMS] Order 28 accepted and placed with remaining 1.
+[OMS] Order 28 canceled.
+[OMS] Order 29 accepted and placed with remaining 1.
+[OMS] Order 29 canceled.
+[OMS] Order 30 accepted and placed with remaining 1.
+[OMS] Order 30 canceled.
+[OMS] Order 31 accepted and placed with remaining 1.
+[OMS] Order 31 canceled.
+[OMS] Order 32 accepted and placed with remaining 1.
+[OMS] Order 32 canceled.
+[OMS] Order 33 accepted and placed with remaining 1.
+[OMS] Order 33 canceled.
+[OMS] Order 34 accepted and placed with remaining 1.
+[OMS] Order 34 canceled.
+[OMS] Order 35 accepted and placed with remaining 1.
+[OMS] Order 35 canceled.
+[OMS] Order 36 accepted and placed with remaining 1.
+[OMS] Order 36 canceled.
+[OMS] Order 37 accepted and placed with remaining 1.
+[OMS] Order 37 canceled.
+[OMS] Order 38 accepted and placed with remaining 1.
+[OMS] Order 38 canceled.
+[OMS] Order 39 accepted and placed with remaining 1.
+[OMS] Order 39 canceled.
+[OMS] Order 40 accepted and placed with remaining 1.
+[OMS] Order 40 canceled.
+[OMS] Order 41 accepted and placed with remaining 1.
+[OMS] Order 41 canceled.
+[OMS] Order 42 accepted and placed with remaining 1.
+[OMS] Order 42 canceled.
+[OMS] Order 43 accepted and placed with remaining 1.
+[OMS] Order 43 canceled.
+[OMS] Order 44 accepted and placed with remaining 1.
+[OMS] Order 44 canceled.
+[OMS] Order 45 accepted and placed with remaining 1.
+[OMS] Order 45 canceled.
+[OMS] Order 46 accepted and placed with remaining 1.
+[OMS] Order 46 canceled.
+[OMS] Order 47 accepted and placed with remaining 1.
+[OMS] Order 47 canceled.
+[OMS] Order 48 accepted and placed with remaining 1.
+[OMS] Order 48 canceled.
+[OMS] Order 49 accepted and placed with remaining 1.
+[OMS] Order 49 canceled.
+[OMS] Order 50 accepted and placed with remaining 1.
+[OMS] Order 50 canceled.
+[OMS] Order 51 accepted and placed with remaining 1.
+[OMS] Order 51 canceled.
+[OMS] Order 52 accepted and placed with remaining 1.
+[OMS] Order 52 canceled.
+[OMS] Order 53 accepted and placed with remaining 1.
+[OMS] Order 53 canceled.
+[OMS] Order 54 accepted and placed with remaining 1.
+[OMS] Order 54 canceled.
+[OMS] Order 55 accepted and placed with remaining 1.
+[OMS] Order 55 canceled.
+[OMS] Order 56 accepted and placed with remaining 1.
+[OMS] Order 56 canceled.
+[OMS] Order 57 accepted and placed with remaining 1.
+[OMS] Order 57 canceled.
+[OMS] Order 58 accepted and placed with remaining 1.
+[OMS] Order 58 canceled.
+[OMS] Order 59 accepted and placed with remaining 1.
+[OMS] Order 59 canceled.
+[OMS] Order 60 accepted and placed with remaining 1.
+[OMS] Order 60 canceled.
+[OMS] Order 61 accepted and placed with remaining 1.
+[OMS] Order 100003 accepted and placed with remaining 1.
+[OMS] Order 100003 canceled.
+[OMS] Order 100004 accepted and placed with remaining 1.
+[OMS] Order 61 canceled.
+[OMS] Order 62 accepted and placed with remaining 1.
+[OMS] Order 62 canceled.
+[OMS] Order 100004 canceled.
+[OMS] Order 100005 accepted and placed with remaining 1.
+[OMS] Order 100005 canceled.
+[OMS] Order 100006 accepted and placed with remaining 1.
+[OMS] Order 100006 canceled.
+[OMS] Order 100007 accepted and placed with remaining 1.
+[OMS] Order 63 accepted and placed with remaining 1.
+[OMS] Order 63 canceled.
+[OMS] Order 64 accepted and placed with remaining 1.
+[OMS] Order 64 canceled.
+[OMS] Order 65 accepted and placed with remaining 1.
+[OMS] Order 65 canceled.
+[OMS] Order 66 accepted and placed with remaining 1.
+[OMS] Order 66 canceled.
+[OMS] Order 67 accepted and placed with remaining 1.
+[OMS] Order 67 canceled.
+[OMS] Order 68 accepted and placed with remaining 1.
+[OMS] Order 68 canceled.
+[OMS] Order 69 accepted and placed with remaining 1.
+[OMS] Order 69 canceled.
+[OMS] Order 70 accepted and placed with remaining 1.
+[OMS] Order 70 canceled.
+[OMS] Order 71 accepted and placed with remaining 1.
+[OMS] Order 71 canceled.
+[OMS] Order 72 accepted and placed with remaining 1.
+[OMS] Order 72 canceled.
+[OMS] Order 73 accepted and placed with remaining 1.
+[OMS] Order 100007 canceled.
+[OMS] Order 100008 accepted and placed with remaining 1.
+[OMS] Order 100008 canceled.
+[OMS] Order 100009 accepted and placed with remaining 1.
+[OMS] Order 100009 canceled.
+[OMS] Order 100010 accepted and placed with remaining 1.
+[OMS] Order 100010 canceled.
+[OMS] Order 100011 accepted and placed with remaining 1.
+[OMS] Order 100011 canceled.
+[OMS] Order 100012 accepted and placed with remaining 1.
+[OMS] Order 100012 canceled.
+[OMS] Order 100013 accepted and placed with remaining 1.
+[OMS] Order 100013 canceled.
+[OMS] Order 100014 accepted and placed with remaining 1.
+[OMS] Order 100014 canceled.
+[OMS] Order 100015 accepted and placed with remaining 1.
+[OMS] Order 100015 canceled.
+[OMS] Order 100016 accepted and placed with remaining 1.
+[OMS] Order 100016 canceled.
+[OMS] Order 100017 accepted and placed with remaining 1.
+[OMS] Order 300031 canceled.
+[OMS] Order 300032 accepted and placed with remaining 1.
+[OMS] Order 300032 canceled.
+[OMS] Order 300033 accepted and placed with remaining 1.
+[OMS] Order 300033 canceled.
+[OMS] Order 100017 canceled.
+[OMS] Order 100018 accepted and placed with remaining 1.
+[OMS] Order 100018 canceled.
+[OMS] Order 100019 accepted and placed with remaining 1.
+[OMS] Order 100019 canceled.
+[OMS] Order 100020 accepted and placed with remaining 1.
+[OMS] Order 100020 canceled.
+[OMS] Order 100021 accepted and placed with remaining 1.
+[OMS] Order 73 canceled.
+[OMS] Order 74 accepted and placed with remaining 1.
+[OMS] Order 74 canceled.
+[OMS] Order 75 accepted and placed with remaining 1.
+[OMS] Order 75 canceled.
+[OMS] Order 76 accepted and placed with remaining 1.
+[OMS] Order 76 canceled.
+[OMS] Order 77 accepted and placed with remaining 1.
+[OMS] Order 77 canceled.
+[OMS] Order 78 accepted and placed with remaining 1.
+[OMS] Order 78 canceled.
+[OMS] Order 79 accepted and placed with remaining 1.
+[OMS] Order 79 canceled.
+[OMS] Order 80 accepted and placed with remaining 1.
+[OMS] Order 80 canceled.
+[OMS] Order 81 accepted and placed with remaining 1.
+[OMS] Order 81 canceled.
+[OMS] Order 82 accepted and placed with remaining 1.
+[OMS] Order 82 canceled.
+[OMS] Order 83 accepted and placed with remaining 1.
+[OMS] Order 83 canceled.
+[OMS] Order 84 accepted and placed with remaining 1.
+[OMS] Order 84 canceled.
+[OMS] Order 85 accepted and placed with remaining 1.
+[OMS] Order 85 canceled.
+[OMS] Order 86 accepted and placed with remaining 1.
+[OMS] Order 86 canceled.
+[OMS] Order 87 accepted and placed with remaining 1.
+[OMS] Order 87 canceled.
+[OMS] Order 88 accepted and placed with remaining 1.
+[OMS] Order 88 canceled.
+[OMS] Order 89 accepted and placed with remaining 1.
+[OMS] Order 89 canceled.
+[OMS] Order 90 accepted and placed with remaining 1.
+[OMS] Order 90 canceled.
+[OMS] Order 91 accepted and placed with remaining 1.
+[OMS] Order 91 canceled.
+[OMS] Order 92 accepted and placed with remaining 1.
+[OMS] Order 92 canceled.
+[OMS] Order 93 accepted and placed with remaining 1.
+[OMS] Order 93 canceled.
+[OMS] Order 94 accepted and placed with remaining 1.
+[OMS] Order 94 canceled.
+[OMS] Order 95 accepted and placed with remaining 1.
+[OMS] Order 95 canceled.
+[OMS] Order 96 accepted and placed with remaining 1.
+[OMS] Order 96 canceled.
+[OMS] Order 97 accepted and placed with remaining 1.
+[OMS] Order 97 canceled.
+[OMS] Order 98 accepted and placed with remaining 1.
+[OMS] Order 98 canceled.
+[OMS] Order 99 accepted and placed with remaining 1.
+[OMS] Order 99 canceled.
+[OMS] Order 100 accepted and placed with remaining 1.
+[OMS] Order 100 canceled.
+[OMS] Order 101 accepted and placed with remaining 1.
+[OMS] Order 101 canceled.
+[OMS] Order 102 accepted and placed with remaining 1.
+[OMS] Order 102 canceled.
+[OMS] Order 103 accepted and placed with remaining 1.
+[OMS] Order 103 canceled.
+[OMS] Order 104 accepted and placed with remaining 1.
+[OMS] Order 104 canceled.
+[OMS] Order 105 accepted and placed with remaining 1.
+[OMS] Order 105 canceled.
+[OMS] Order 106 accepted and placed with remaining 1.
+[OMS] Order 106 canceled.
+[OMS] Order 107 accepted and placed with remaining 1.
+[OMS] Order 107 canceled.
+[OMS] Order 108 accepted and placed with remaining 1.
+[OMS] Order 108 canceled.
+[OMS] Order 109 accepted and placed with remaining 1.
+[OMS] Order 109 canceled.
+[OMS] Order 110 accepted and placed with remaining 1.
+[OMS] Order 110 canceled.
+[OMS] Order 111 accepted and placed with remaining 1.
+[OMS] Order 111 canceled.
+[OMS] Order 112 accepted and placed with remaining 1.
+[OMS] Order 112 canceled.
+[OMS] Order 113 accepted and placed with remaining 1.
+[OMS] Order 113 canceled.
+[OMS] Order 114 accepted and placed with remaining 1.
+[OMS] Order 114 canceled.
+[OMS] Order 115 accepted and placed with remaining 1.
+[OMS] Order 115 canceled.
+[OMS] Order 116 accepted and placed with remaining 1.
+[OMS] Order 116 canceled.
+[OMS] Order 117 accepted and placed with remaining 1.
+[OMS] Order 117 canceled.
+[OMS] Order 118 accepted and placed with remaining 1.
+[OMS] Order 118 canceled.
+[OMS] Order 119 accepted and placed with remaining 1.
+[OMS] Order 119 canceled.
+[OMS] Order 120 accepted and placed with remaining 1.
+[OMS] Order 120 canceled.
+[OMS] Order 121 accepted and placed with remaining 1.
+[OMS] Order 100021 canceled.
+[OMS] Order 100022 accepted and placed with remaining 1.
+[OMS] Order 100022 canceled.
+[OMS] Order 100023 accepted and placed with remaining 1.
+[OMS] Order 100023 canceled.
+[OMS] Order 100024 accepted and placed with remaining 1.
+[OMS] Order 100024 canceled.
+[OMS] Order 100025 accepted and placed with remaining 1.
+[OMS] Order 100025 canceled.
+[OMS] Order 100026 accepted and placed with remaining 1.
+[OMS] Order 100026 canceled.
+[OMS] Order 100027 accepted and placed with remaining 1.
+[OMS] Order 100027 canceled.
+[OMS] Order 100028 accepted and placed with remaining 1.
+[OMS] Order 100028 canceled.
+[OMS] Order 100029 accepted and placed with remaining 1.
+[OMS] Order 100029 canceled.
+[OMS] Order 100030 accepted and placed with remaining 1.
+[OMS] Order 100030 canceled.
+[OMS] Order 100031 accepted and placed with remaining 1.
+[OMS] Order 100031 canceled.
+[OMS] Order 100032 accepted and placed with remaining 1.
+[OMS] Order 100032 canceled.
+[OMS] Order 100033 accepted and placed with remaining 1.
+[OMS] Order 100033 canceled.
+[OMS] Order 100034 accepted and placed with remaining 1.
+[OMS] Order 100034 canceled.
+[OMS] Order 100035 accepted and placed with remaining 1.
+[OMS] Order 100035 canceled.
+[OMS] Order 100036 accepted and placed with remaining 1.
+[OMS] Order 100036 canceled.
+[OMS] Order 100037 accepted and placed with remaining 1.
+[OMS] Order 100037 canceled.
+[OMS] Order 121 canceled.
+[OMS] Order 100038 accepted and placed with remaining 1.
+[OMS] Order 300034 accepted and placed with remaining 1.
+[OMS] Order 300034 canceled.
+[OMS] Order 122 accepted and placed with remaining 1.
+[OMS] Order 200040 canceled.
+[OMS] Order 200041 accepted and placed with remaining 1.
+[OMS] Order 200041 canceled.
+[OMS] Order 122 canceled.
+[OMS] Order 300035 accepted and placed with remaining 1.
+[OMS] Order 300035 canceled.
+[OMS] Order 300036 accepted and placed with remaining 1.
+[OMS] Order 300036 canceled.
+[OMS] Order 300037 accepted and placed with remaining 1.
+[OMS] Order 300037 canceled.
+[OMS] Order 123 accepted and placed with remaining 1.
+[OMS] Order 123 canceled.
+[OMS] Order 124 accepted and placed with remaining 1.
+[OMS] Order 124 canceled.
+[OMS] Order 125 accepted and placed with remaining 1.
+[OMS] Order 125 canceled.
+[OMS] Order 300038 accepted and placed with remaining 1.
+[OMS] Order 300038 canceled.
+[OMS] Order 300039 accepted and placed with remaining 1.
+[OMS] Order 300039 canceled.
+[OMS] Order 300040 accepted and placed with remaining 1.
+[OMS] Order 300040 canceled.
+[OMS] Order 300041 accepted and placed with remaining 1.
+[OMS] Order 300041 canceled.
+[OMS] Order 200042 accepted and placed with remaining 1.
+[OMS] Order 200042 canceled.
+[OMS] Order 200043 accepted and placed with remaining 1.
+[OMS] Order 200043 canceled.
+[OMS] Order 200044 accepted and placed with remaining 1.
+[OMS] Order 200044 canceled.
+[OMS] Order 200045 accepted and placed with remaining 1.
+[OMS] Order 200045 canceled.
+[OMS] Order 200046 accepted and placed with remaining 1.
+[OMS] Order 200046 canceled.
+[OMS] Order 200047 accepted and placed with remaining 1.
+[OMS] Order 200047 canceled.
+[OMS] Order 200048 accepted and placed with remaining 1.
+[OMS] Order 200048 canceled.
+[OMS] Order 200049 accepted and placed with remaining 1.
+[OMS] Order 200049 canceled.
+[OMS] Order 200050 accepted and placed with remaining 1.
+[OMS] Order 200050 canceled.
+[OMS] Order 126 accepted and placed with remaining 1.
+[OMS] Order 126 canceled.
+[OMS] Order 127 accepted and placed with remaining 1.
+[OMS] Order 127 canceled.
+[OMS] Order 128 accepted and placed with remaining 1.
+[OMS] Order 128 canceled.
+[OMS] Order 129 accepted and placed with remaining 1.
+[OMS] Order 129 canceled.
+[OMS] Order 130 accepted and placed with remaining 1.
+[OMS] Order 130 canceled.
+[OMS] Order 131 accepted and placed with remaining 1.
+[OMS] Order 131 canceled.
+[OMS] Order 132 accepted and placed with remaining 1.
+[OMS] Order 132 canceled.
+[OMS] Order 133 accepted and placed with remaining 1.
+[OMS] Order 133 canceled.
+[OMS] Order 134 accepted and placed with remaining 1.
+[OMS] Order 134 canceled.
+[OMS] Order 100038 canceled.
+[OMS] Order 135 accepted and placed with remaining 1.
+[OMS] Order 100039 accepted and placed with remaining 1.
+[OMS] Order 100039 canceled.
+[OMS] Order 100040 accepted and placed with remaining 1.
+[OMS] Order 100040 canceled.
+[OMS] Order 100041 accepted and placed with remaining 1.
+[OMS] Order 100041 canceled.
+[OMS] Order 100042 accepted and placed with remaining 1.
+[OMS] Order 100042 canceled.
+[OMS] Order 100043 accepted and placed with remaining 1.
+[OMS] Order 100043 canceled.
+[OMS] Order 100044 accepted and placed with remaining 1.
+[OMS] Order 100044 canceled.
+[OMS] Order 100045 accepted and placed with remaining 1.
+[OMS] Order 100045 canceled.
+[OMS] Order 100046 accepted and placed with remaining 1.
+[OMS] Order 100046 canceled.
+[OMS] Order 100047 accepted and placed with remaining 1.
+[OMS] Order 100047 canceled.
+[OMS] Order 100048 accepted and placed with remaining 1.
+[OMS] Order 100048 canceled.
+[OMS] Order 100049 accepted and placed with remaining 1.
+[OMS] Order 100049 canceled.
+[OMS] Order 100050 accepted and placed with remaining 1.
+[OMS] Order 100050 canceled.
+[OMS] Order 100051 accepted and placed with remaining 1.
+[OMS] Order 100051 canceled.
+[OMS] Order 100052 accepted and placed with remaining 1.
+[OMS] Order 100052 canceled.
+[OMS] Order 100053 accepted and placed with remaining 1.
+[OMS] Order 100053 canceled.
+[OMS] Order 100054 accepted and placed with remaining 1.
+[OMS] Order 100054 canceled.
+[OMS] Order 100055 accepted and placed with remaining 1.
+[OMS] Order 100055 canceled.
+[OMS] Order 100056 accepted and placed with remaining 1.
+[OMS] Order 100056 canceled.
+[OMS] Order 100057 accepted and placed with remaining 1.
+[OMS] Order 100057 canceled.
+[OMS] Order 100058 accepted and placed with remaining 1.
+[OMS] Order 135 canceled.
+[OMS] Order 200051 accepted and placed with remaining 1.
+[OMS] Order 200051 canceled.
+[OMS] Order 136 accepted and placed with remaining 1.
+[OMS] Order 136 canceled.
+[OMS] Order 137 accepted and placed with remaining 1.
+[OMS] Order 137 canceled.
+[OMS] Order 138 accepted and placed with remaining 1.
+[OMS] Order 138 canceled.
+[OMS] Order 139 accepted and placed with remaining 1.
+[OMS] Order 139 canceled.
+[OMS] Order 140 accepted and placed with remaining 1.
+[OMS] Order 140 canceled.
+[OMS] Order 141 accepted and placed with remaining 1.
+[OMS] Order 141 canceled.
+[OMS] Order 142 accepted and placed with remaining 1.
+[OMS] Order 142 canceled.
+[OMS] Order 143 accepted and placed with remaining 1.
+[OMS] Order 143 canceled.
+[OMS] Order 144 accepted and placed with remaining 1.
+[OMS] Order 144 canceled.
+[OMS] Order 145 accepted and placed with remaining 1.
+[OMS] Order 145 canceled.
+[OMS] Order 146 accepted and placed with remaining 1.
+[OMS] Order 146 canceled.
+[OMS] Order 147 accepted and placed with remaining 1.
+[OMS] Order 147 canceled.
+[OMS] Order 148 accepted and placed with remaining 1.
+[OMS] Order 148 canceled.
+[OMS] Order 149 accepted and placed with remaining 1.
+[OMS] Order 149 canceled.
+[OMS] Order 150 accepted and placed with remaining 1.
+[OMS] Order 150 canceled.
+[OMS] Order 151 accepted and placed with remaining 1.
+[OMS] Order 151 canceled.
+[OMS] Order 152 accepted and placed with remaining 1.
+[OMS] Order 152 canceled.
+[OMS] Order 153 accepted and placed with remaining 1.
+[OMS] Order 153 canceled.
+[OMS] Order 154 accepted and placed with remaining 1.
+[OMS] Order 154 canceled.
+[OMS] Order 155 accepted and placed with remaining 1.
+[OMS] Order 155 canceled.
+[OMS] Order 156 accepted and placed with remaining 1.
+[OMS] Order 156 canceled.
+[OMS] Order 157 accepted and placed with remaining 1.
+[OMS] Order 157 canceled.
+[OMS] Order 158 accepted and placed with remaining 1.
+[OMS] Order 158 canceled.
+[OMS] Order 159 accepted and placed with remaining 1.
+[OMS] Order 159 canceled.
+[OMS] Order 160 accepted and placed with remaining 1.
+[OMS] Order 160 canceled.
+[OMS] Order 161 accepted and placed with remaining 1.
+[OMS] Order 161 canceled.
+[OMS] Order 162 accepted and placed with remaining 1.
+[OMS] Order 162 canceled.
+[OMS] Order 163 accepted and placed with remaining 1.
+[OMS] Order 163 canceled.
+[OMS] Order 164 accepted and placed with remaining 1.
+[OMS] Order 164 canceled.
+[OMS] Order 165 accepted and placed with remaining 1.
+[OMS] Order 165 canceled.
+[OMS] Order 166 accepted and placed with remaining 1.
+[OMS] Order 166 canceled.
+[OMS] Order 167 accepted and placed with remaining 1.
+[OMS] Order 167 canceled.
+[OMS] Order 168 accepted and placed with remaining 1.
+[OMS] Order 168 canceled.
+[OMS] Order 169 accepted and placed with remaining 1.
+[OMS] Order 169 canceled.
+[OMS] Order 170 accepted and placed with remaining 1.
+[OMS] Order 170 canceled.
+[OMS] Order 171 accepted and placed with remaining 1.
+[OMS] Order 171 canceled.
+[OMS] Order 172 accepted and placed with remaining 1.
+[OMS] Order 172 canceled.
+[OMS] Order 173 accepted and placed with remaining 1.
+[OMS] Order 173 canceled.
+[OMS] Order 174 accepted and placed with remaining 1.
+[OMS] Order 174 canceled.
+[OMS] Order 175 accepted and placed with remaining 1.
+[OMS] Order 175 canceled.
+[OMS] Order 176 accepted and placed with remaining 1.
+[OMS] Order 176 canceled.
+[OMS] Order 177 accepted and placed with remaining 1.
+[OMS] Order 177 canceled.
+[OMS] Order 178 accepted and placed with remaining 1.
+[OMS] Order 178 canceled.
+[OMS] Order 179 accepted and placed with remaining 1.
+[OMS] Order 179 canceled.
+[OMS] Order 180 accepted and placed with remaining 1.
+[OMS] Order 180 canceled.
+[OMS] Order 181 accepted and placed with remaining 1.
+[OMS] Order 181 canceled.
+[OMS] Order 182 accepted and placed with remaining 1.
+[OMS] Order 182 canceled.
+[OMS] Order 183 accepted and placed with remaining 1.
+[OMS] Order 183 canceled.
+[OMS] Order 184 accepted and placed with remaining 1.
+[OMS] Order 184 canceled.
+[OMS] Order 185 accepted and placed with remaining 1.
+[OMS] Order 200052 accepted and placed with remaining 1.
+[OMS] Order 200052 canceled.
+[OMS] Order 200053 accepted and placed with remaining 1.
+[OMS] Order 300042 accepted and placed with remaining 1.
+[OMS] Order 300042 canceled.
+[OMS] Order 200053 canceled.
+[OMS] Order 200054 accepted and placed with remaining 1.
+[OMS] Order 200054 canceled.
+[OMS] Order 200055 accepted and placed with remaining 1.
+[OMS] Order 300043 accepted and placed with remaining 1.
+[OMS] Order 300043 canceled.
+[OMS] Order 185 canceled.
+[OMS] Order 200055 canceled.
+[OMS] Order 100058 canceled.
+[OMS] Order 100059 accepted and placed with remaining 1.
+[OMS] Order 100059 canceled.
+[OMS] Order 100060 accepted and placed with remaining 1.
+[OMS] Order 100060 canceled.
+[OMS] Order 100061 accepted and placed with remaining 1.
+[OMS] Order 100061 canceled.
+[OMS] Order 100062 accepted and placed with remaining 1.
+[OMS] Order 300044 accepted and placed with remaining 1.
+[OMS] Order 300044 canceled.
+[OMS] Order 300045 accepted and placed with remaining 1.
+[OMS] Order 300045 canceled.
+[OMS] Order 300046 accepted and placed with remaining 1.
+[OMS] Order 300046 canceled.
+[OMS] Order 300047 accepted and placed with remaining 1.
+[OMS] Order 300047 canceled.
+[OMS] Order 300048 accepted and placed with remaining 1.
+[OMS] Order 300048 canceled.
+[OMS] Order 300049 accepted and placed with remaining 1.
+[OMS] Order 300049 canceled.
+[OMS] Order 300050 accepted and placed with remaining 1.
+[OMS] Order 300050 canceled.
+[OMS] Order 300051 accepted and placed with remaining 1.
+[OMS] Order 300051 canceled.
+[OMS] Order 300052 accepted and placed with remaining 1.
+[OMS] Order 300052 canceled.
+[OMS] Order 300053 accepted and placed with remaining 1.
+[OMS] Order 300053 canceled.
+[OMS] Order 300054 accepted and placed with remaining 1.
+[OMS] Order 300054 canceled.
+[OMS] Order 300055 accepted and placed with remaining 1.
+[OMS] Order 300055 canceled.
+[OMS] Order 300056 accepted and placed with remaining 1.
+[OMS] Order 300056 canceled.
+[OMS] Order 300057 accepted and placed with remaining 1.
+[OMS] Order 300057 canceled.
+[OMS] Order 300058 accepted and placed with remaining 1.
+[OMS] Order 100062 canceled.
+[OMS] Order 100063 accepted and placed with remaining 1.
+[OMS] Order 100063 canceled.
+[OMS] Order 100064 accepted and placed with remaining 1.
+[OMS] Order 100064 canceled.
+[OMS] Order 100065 accepted and placed with remaining 1.
+[OMS] Order 100065 canceled.
+[OMS] Order 100066 accepted and placed with remaining 1.
+[OMS] Order 100066 canceled.
+[OMS] Order 100067 accepted and placed with remaining 1.
+[OMS] Order 100067 canceled.
+[OMS] Order 100068 accepted and placed with remaining 1.
+[OMS] Order 186 accepted and placed with remaining 1.
+[OMS] Order 186 canceled.
+[OMS] Order 187 accepted and placed with remaining 1.
+[OMS] Order 187 canceled.
+[OMS] Order 188 accepted and placed with remaining 1.
+[OMS] Order 188 canceled.
+[OMS] Order 189 accepted and placed with remaining 1.
+[OMS] Order 300058 canceled.
+[OMS] Order 300059 accepted and placed with remaining 1.
+[OMS] Order 300059 canceled.
+[OMS] Order 300060 accepted and placed with remaining 1.
+[OMS] Order 300060 canceled.
+[OMS] Order 300061 accepted and placed with remaining 1.
+[OMS] Order 300061 canceled.
+[OMS] Order 300062 accepted and placed with remaining 1.
+[OMS] Order 300062 canceled.
+[OMS] Order 300063 accepted and placed with remaining 1.
+[OMS] Order 300063 canceled.
+[OMS] Order 300064 accepted and placed with remaining 1.
+[OMS] Order 300064 canceled.
+[OMS] Order 100068 canceled.
+[OMS] Order 100069 accepted and placed with remaining 1.
+[OMS] Order 100069 canceled.
+[OMS] Order 300065 accepted and placed with remaining 1.
+[OMS] Order 300065 canceled.
+[OMS] Order 300066 accepted and placed with remaining 1.
+[OMS] Order 300066 canceled.
+[OMS] Order 300067 accepted and placed with remaining 1.
+[OMS] Order 300067 canceled.
+[OMS] Order 300068 accepted and placed with remaining 1.
+[OMS] Order 300068 canceled.
+[OMS] Order 300069 accepted and placed with remaining 1.
+[OMS] Order 300069 canceled.
+[OMS] Order 300070 accepted and placed with remaining 1.
+[OMS] Order 300070 canceled.
+[OMS] Order 300071 accepted and placed with remaining 1.
+[OMS] Order 300071 canceled.
+[OMS] Order 300072 accepted and placed with remaining 1.
+[OMS] Order 300072 canceled.
+[OMS] Order 300073 accepted and placed with remaining 1.
+[OMS] Order 300073 canceled.
+[OMS] Order 300074 accepted and placed with remaining 1.
+[OMS] Order 300074 canceled.
+[OMS] Order 300075 accepted and placed with remaining 1.
+[OMS] Order 300075 canceled.
+[OMS] Order 300076 accepted and placed with remaining 1.
+[OMS] Order 300076 canceled.
+[OMS] Order 300077 accepted and placed with remaining 1.
+[OMS] Order 300077 canceled.
+[OMS] Order 300078 accepted and placed with remaining 1.
+[OMS] Order 300078 canceled.
+[OMS] Order 300079 accepted and placed with remaining 1.
+[OMS] Order 300079 canceled.
+[OMS] Order 300080 accepted and placed with remaining 1.
+[OMS] Order 300080 canceled.
+[OMS] Order 300081 accepted and placed with remaining 1.
+[OMS] Order 200056 accepted and placed with remaining 1.
+[OMS] Order 200056 canceled.
+[OMS] Order 200057 accepted and placed with remaining 1.
+[OMS] Order 200057 canceled.
+[OMS] Order 200058 accepted and placed with remaining 1.
+[OMS] Order 200058 canceled.
+[OMS] Order 200059 accepted and placed with remaining 1.
+[OMS] Order 200059 canceled.
+[OMS] Order 200060 accepted and placed with remaining 1.
+[OMS] Order 200060 canceled.
+[OMS] Order 200061 accepted and placed with remaining 1.
+[OMS] Order 200061 canceled.
+[OMS] Order 200062 accepted and placed with remaining 1.
+[OMS] Order 200062 canceled.
+[OMS] Order 300081 canceled.
+[OMS] Order 300082 accepted and placed with remaining 1.
+[OMS] Order 300082 canceled.
+[OMS] Order 300083 accepted and placed with remaining 1.
+[OMS] Order 300083 canceled.
+[OMS] Order 300084 accepted and placed with remaining 1.
+[OMS] Order 300084 canceled.
+[OMS] Order 300085 accepted and placed with remaining 1.
+[OMS] Order 300085 canceled.
+[OMS] Order 300086 accepted and placed with remaining 1.
+[OMS] Order 300086 canceled.
+[OMS] Order 300087 accepted and placed with remaining 1.
+[OMS] Order 300087 canceled.
+[OMS] Order 300088 accepted and placed with remaining 1.
+[OMS] Order 300088 canceled.
+[OMS] Order 300089 accepted and placed with remaining 1.
+[OMS] Order 300089 canceled.
+[OMS] Order 300090 accepted and placed with remaining 1.
+[OMS] Order 200063 accepted and placed with remaining 1.
+[OMS] Order 200063 canceled.
+[OMS] Order 200064 accepted and placed with remaining 1.
+[OMS] Order 200064 canceled.
+[OMS] Order 200065 accepted and placed with remaining 1.
+[OMS] Order 200065 canceled.
+[OMS] Order 200066 accepted and placed with remaining 1.
+[OMS] Order 200066 canceled.
+[OMS] Order 200067 accepted and placed with remaining 1.
+[OMS] Order 200067 canceled.
+[OMS] Order 200068 accepted and placed with remaining 1.
+[OMS] Order 200068 canceled.
+[OMS] Order 200069 accepted and placed with remaining 1.
+[OMS] Order 200069 canceled.
+[OMS] Order 200070 accepted and placed with remaining 1.
+[OMS] Order 200070 canceled.
+[OMS] Order 200071 accepted and placed with remaining 1.
+[OMS] Order 200071 canceled.
+[OMS] Order 200072 accepted and placed with remaining 1.
+[OMS] Order 200072 canceled.
+[OMS] Order 200073 accepted and placed with remaining 1.
+[OMS] Order 200073 canceled.
+[OMS] Order 200074 accepted and placed with remaining 1.
+[OMS] Order 200074 canceled.
+[OMS] Order 200075 accepted and placed with remaining 1.
+[OMS] Order 200075 canceled.
+[OMS] Order 200076 accepted and placed with remaining 1.
+[OMS] Order 200076 canceled.
+[OMS] Order 200077 accepted and placed with remaining 1.
+[OMS] Order 200077 canceled.
+[OMS] Order 200078 accepted and placed with remaining 1.
+[OMS] Order 200078 canceled.
+[OMS] Order 200079 accepted and placed with remaining 1.
+[OMS] Order 200079 canceled.
+[OMS] Order 200080 accepted and placed with remaining 1.
+[OMS] Order 200080 canceled.
+[OMS] Order 200081 accepted and placed with remaining 1.
+[OMS] Order 200081 canceled.
+[OMS] Order 200082 accepted and placed with remaining 1.
+[OMS] Order 200082 canceled.
+[OMS] Order 200083 accepted and placed with remaining 1.
+[OMS] Order 200083 canceled.
+[OMS] Order 200084 accepted and placed with remaining 1.
+[OMS] Order 200084 canceled.
+[OMS] Order 200085 accepted and placed with remaining 1.
+[OMS] Order 189 canceled.
+[OMS] Order 190 accepted and placed with remaining 1.
+[OMS] Order 190 canceled.
+[OMS] Order 191 accepted and placed with remaining 1.
+[OMS] Order 191 canceled.
+[OMS] Order 192 accepted and placed with remaining 1.
+[OMS] Order 200085 canceled.
+[OMS] Order 200086 accepted and placed with remaining 1.
+[OMS] Order 200086 canceled.
+[OMS] Order 200087 accepted and placed with remaining 1.
+[OMS] Order 200087 canceled.
+[OMS] Order 200088 accepted and placed with remaining 1.
+[OMS] Order 200088 canceled.
+[OMS] Order 200089 accepted and placed with remaining 1.
+[OMS] Order 200089 canceled.
+[OMS] Order 192 canceled.
+[OMS] Order 193 accepted and placed with remaining 1.
+[OMS] Order 300090 canceled.
+[OMS] Order 300091 accepted and placed with remaining 1.
+[OMS] Order 300091 canceled.
+[OMS] Order 300092 accepted and placed with remaining 1.
+[OMS] Order 300092 canceled.
+[OMS] Order 100070 accepted and placed with remaining 1.
+[OMS] Order 193 canceled.
+[OMS] Order 194 accepted and placed with remaining 1.
+[OMS] Order 100070 canceled.
+[OMS] Order 100071 accepted and placed with remaining 1.
+[OMS] Order 100071 canceled.
+[OMS] Order 100072 accepted and placed with remaining 1.
+[OMS] Order 100072 canceled.
+[OMS] Order 100073 accepted and placed with remaining 1.
+[OMS] Order 100073 canceled.
+[OMS] Order 100074 accepted and placed with remaining 1.
+[OMS] Order 200090 accepted and placed with remaining 1.
+[OMS] Order 200090 canceled.
+[OMS] Order 194 canceled.
+[OMS] Order 195 accepted and placed with remaining 1.
+[OMS] Order 195 canceled.
+[OMS] Order 200091 accepted and placed with remaining 1.
+[OMS] Order 300093 accepted and placed with remaining 1.
+[OMS] Order 300093 canceled.
+[OMS] Order 196 accepted and placed with remaining 1.
+[OMS] Order 196 canceled.
+[OMS] Order 100074 canceled.
+[OMS] Order 100075 accepted and placed with remaining 1.
+[OMS] Order 100075 canceled.
+[OMS] Order 100076 accepted and placed with remaining 1.
+[OMS] Order 100076 canceled.
+[OMS] Order 100077 accepted and placed with remaining 1.
+[OMS] Order 100077 canceled.
+[OMS] Order 300094 accepted and placed with remaining 1.
+[OMS] Order 300094 canceled.
+[OMS] Order 300095 accepted and placed with remaining 1.
+[OMS] Order 300095 canceled.
+[OMS] Order 300096 accepted and placed with remaining 1.
+[OMS] Order 300096 canceled.
+[OMS] Order 100078 accepted and placed with remaining 1.
+[OMS] Order 100078 canceled.
+[OMS] Order 100079 accepted and placed with remaining 1.
+[OMS] Order 100079 canceled.
+[OMS] Order 100080 accepted and placed with remaining 1.
+[OMS] Order 100080 canceled.
+[OMS] Order 200091 canceled.
+[OMS] Order 197 accepted and placed with remaining 1.
+[OMS] Order 197 canceled.
+[OMS] Order 198 accepted and placed with remaining 1.
+[OMS] Order 198 canceled.
+[OMS] Order 300097 accepted and placed with remaining 1.
+[OMS] Order 300097 canceled.
+[OMS] Order 300098 accepted and placed with remaining 1.
+[OMS] Order 300098 canceled.
+[OMS] Order 100081 accepted and placed with remaining 1.
+[OMS] Order 100081 canceled.
+[OMS] Order 100082 accepted and placed with remaining 1.
+[OMS] Order 100082 canceled.
+[OMS] Order 200092 accepted and placed with remaining 1.
+[OMS] Order 200092 canceled.
+[OMS] Order 300099 accepted and placed with remaining 1.
+[OMS] Order 100083 accepted and placed with remaining 1.
+[OMS] Order 100083 canceled.
+[OMS] Order 200093 accepted and placed with remaining 1.
+[OMS] Order 200093 canceled.
+[OMS] Order 200094 accepted and placed with remaining 1.
+[OMS] Order 200094 canceled.
+[OMS] Order 200095 accepted and placed with remaining 1.
+[OMS] Order 199 accepted and placed with remaining 1.
+[OMS] Order 199 canceled.
+[OMS] Order 200 accepted and placed with remaining 1.
+[OMS] Order 200 canceled.
+[OMS] Order 100084 accepted and placed with remaining 1.
+[OMS] Order 100084 canceled.
+[OMS] Order 100085 accepted and placed with remaining 1.
+[OMS] Order 100085 canceled.
+[OMS] Order 100086 accepted and placed with remaining 1.
+[OMS] Order 100086 canceled.
+[OMS] Order 100087 accepted and placed with remaining 1.
+[OMS] Order 100087 canceled.
+[OMS] Order 100088 accepted and placed with remaining 1.
+[OMS] Order 100088 canceled.
+[OMS] Order 100089 accepted and placed with remaining 1.
+[OMS] Order 100089 canceled.
+[OMS] Order 100090 accepted and placed with remaining 1.
+[OMS] Order 100090 canceled.
+[OMS] Order 100091 accepted and placed with remaining 1.
+[OMS] Order 100091 canceled.
+[OMS] Order 100092 accepted and placed with remaining 1.
+[OMS] Order 100092 canceled.
+[OMS] Order 100093 accepted and placed with remaining 1.
+[OMS] Order 100093 canceled.
+[OMS] Order 100094 accepted and placed with remaining 1.
+[OMS] Order 100094 canceled.
+[OMS] Order 100095 accepted and placed with remaining 1.
+[OMS] Order 200095 canceled.
+[OMS] Order 200096 accepted and placed with remaining 1.
+[OMS] Order 200096 canceled.
+[OMS] Order 200097 accepted and placed with remaining 1.
+[OMS] Order 200097 canceled.
+[OMS] Order 200098 accepted and placed with remaining 1.
+[OMS] Order 200098 canceled.
+[OMS] Order 200099 accepted and placed with remaining 1.
+[OMS] Order 200099 canceled.
+[OMS] Order 200100 accepted and placed with remaining 1.
+[OMS] Order 200100 canceled.
+[OMS] Order 200101 accepted and placed with remaining 1.
+[OMS] Order 200101 canceled.
+[OMS] Order 200102 accepted and placed with remaining 1.
+[OMS] Order 200102 canceled.
+[OMS] Order 200103 accepted and placed with remaining 1.
+[OMS] Order 200103 canceled.
+[OMS] Order 200104 accepted and placed with remaining 1.
+[OMS] Order 200104 canceled.
+[OMS] Order 200105 accepted and placed with remaining 1.
+[OMS] Order 200105 canceled.
+[OMS] Order 200106 accepted and placed with remaining 1.
+[OMS] Order 200106 canceled.
+[OMS] Order 200107 accepted and placed with remaining 1.
+[OMS] Order 200107 canceled.
+[OMS] Order 200108 accepted and placed with remaining 1.
+[OMS] Order 200108 canceled.
+[OMS] Order 300099 canceled.
+[OMS] Order 300100 accepted and placed with remaining 1.
+[OMS] Order 300100 canceled.
+[OMS] Order 100095 canceled.
+[OMS] Order 100096 accepted and placed with remaining 1.
+[OMS] Order 100096 canceled.
+[OMS] Order 100097 accepted and placed with remaining 1.
+[OMS] Order 100097 canceled.
+[OMS] Order 100098 accepted and placed with remaining 1.
+[OMS] Order 100098 canceled.
+[OMS] Order 100099 accepted and placed with remaining 1.
+[OMS] Order 100099 canceled.
+[OMS] Order 100100 accepted and placed with remaining 1.
+[OMS] Order 100100 canceled.
+[OMS] Order 100101 accepted and placed with remaining 1.
+[OMS] Order 100101 canceled.
+[OMS] Order 100102 accepted and placed with remaining 1.
+[OMS] Order 100102 canceled.
+[OMS] Order 100103 accepted and placed with remaining 1.
+[OMS] Order 100103 canceled.
+[OMS] Order 100104 accepted and placed with remaining 1.
+[OMS] Order 100104 canceled.
+[OMS] Order 100105 accepted and placed with remaining 1.
+[OMS] Order 100105 canceled.
+[OMS] Order 100106 accepted and placed with remaining 1.
+[OMS] Order 100106 canceled.
+[OMS] Order 100107 accepted and placed with remaining 1.
+[OMS] Order 100107 canceled.
+[OMS] Order 100108 accepted and placed with remaining 1.
+[OMS] Order 100108 canceled.
+[OMS] Order 100109 accepted and placed with remaining 1.
+[OMS] Order 100109 canceled.
+[OMS] Order 100110 accepted and placed with remaining 1.
+[OMS] Order 100110 canceled.
+[OMS] Order 200109 accepted and placed with remaining 1.
+[OMS] Order 200109 canceled.
+[OMS] Order 200110 accepted and placed with remaining 1.
+[OMS] Order 200110 canceled.
+[OMS] Order 200111 accepted and placed with remaining 1.
+[OMS] Order 200111 canceled.
+[OMS] Order 200112 accepted and placed with remaining 1.
+[OMS] Order 200112 canceled.
+[OMS] Order 200113 accepted and placed with remaining 1.
+[OMS] Order 200113 canceled.
+[OMS] Order 200114 accepted and placed with remaining 1.
+[OMS] Order 200114 canceled.
+[OMS] Order 200115 accepted and placed with remaining 1.
+[OMS] Order 200115 canceled.
+[OMS] Order 200116 accepted and placed with remaining 1.
+[OMS] Order 200116 canceled.
+[OMS] Order 200117 accepted and placed with remaining 1.
+[OMS] Order 200117 canceled.
+[OMS] Order 200118 accepted and placed with remaining 1.
+[OMS] Order 200118 canceled.
+[OMS] Order 200119 accepted and placed with remaining 1.
+[OMS] Order 100111 accepted and placed with remaining 1.
+[OMS] Order 100111 canceled.
+[OMS] Order 100112 accepted and placed with remaining 1.
+[OMS] Order 100112 canceled.
+[OMS] Order 100113 accepted and placed with remaining 1.
+[OMS] Order 100113 canceled.
+[OMS] Order 100114 accepted and placed with remaining 1.
+[OMS] Order 100114 canceled.
+[OMS] Order 100115 accepted and placed with remaining 1.
+[OMS] Order 100115 canceled.
+[OMS] Order 100116 accepted and placed with remaining 1.
+[OMS] Order 100116 canceled.
+[OMS] Order 100117 accepted and placed with remaining 1.
+[OMS] Order 100117 canceled.
+[OMS] Order 100118 accepted and placed with remaining 1.
+[OMS] Order 100118 canceled.
+[OMS] Order 100119 accepted and placed with remaining 1.
+[OMS] Order 100119 canceled.
+[OMS] Order 100120 accepted and placed with remaining 1.
+[OMS] Order 100120 canceled.
+[OMS] Order 100121 accepted and placed with remaining 1.
+[OMS] Order 100121 canceled.
+[OMS] Order 100122 accepted and placed with remaining 1.
+[OMS] Order 100122 canceled.
+[OMS] Order 100123 accepted and placed with remaining 1.
+[OMS] Order 100123 canceled.
+[OMS] Order 100124 accepted and placed with remaining 1.
+[OMS] Order 200119 canceled.
+[OMS] Order 200120 accepted and placed with remaining 1.
+[OMS] Order 200120 canceled.
+[OMS] Order 200121 accepted and placed with remaining 1.
+[OMS] Order 200121 canceled.
+[OMS] Order 200122 accepted and placed with remaining 1.
+[OMS] Order 200122 canceled.
+[OMS] Order 200123 accepted and placed with remaining 1.
+[OMS] Order 200123 canceled.
+[OMS] Order 200124 accepted and placed with remaining 1.
+[OMS] Order 200124 canceled.
+[OMS] Order 200125 accepted and placed with remaining 1.
+[OMS] Order 200125 canceled.
+[OMS] Order 200126 accepted and placed with remaining 1.
+[OMS] Order 200126 canceled.
+[OMS] Order 200127 accepted and placed with remaining 1.
+[OMS] Order 200127 canceled.
+[OMS] Order 200128 accepted and placed with remaining 1.
+[OMS] Order 200128 canceled.
+[OMS] Order 200129 accepted and placed with remaining 1.
+[OMS] Order 200129 canceled.
+[OMS] Order 200130 accepted and placed with remaining 1.
+[OMS] Order 200130 canceled.
+[OMS] Order 200131 accepted and placed with remaining 1.
+[OMS] Order 200131 canceled.
+[OMS] Order 200132 accepted and placed with remaining 1.
+[OMS] Order 200132 canceled.
+[OMS] Order 200133 accepted and placed with remaining 1.
+[OMS] Order 200133 canceled.
+[OMS] Order 200134 accepted and placed with remaining 1.
+[OMS] Order 200134 canceled.
+[OMS] Order 200135 accepted and placed with remaining 1.
+[OMS] Order 200135 canceled.
+[OMS] Order 200136 accepted and placed with remaining 1.
+[OMS] Order 200136 canceled.
+[OMS] Order 200137 accepted and placed with remaining 1.
+[OMS] Order 200137 canceled.
+[OMS] Order 200138 accepted and placed with remaining 1.
+[OMS] Order 200138 canceled.
+[OMS] Order 200139 accepted and placed with remaining 1.
+[OMS] Order 200139 canceled.
+[OMS] Order 200140 accepted and placed with remaining 1.
+[OMS] Order 200140 canceled.
+[OMS] Order 200141 accepted and placed with remaining 1.
+[OMS] Order 200141 canceled.
+[OMS] Order 200142 accepted and placed with remaining 1.
+[OMS] Order 200142 canceled.
+[OMS] Order 200143 accepted and placed with remaining 1.
+[OMS] Order 200143 canceled.
+[OMS] Order 200144 accepted and placed with remaining 1.
+[OMS] Order 200144 canceled.
+[OMS] Order 200145 accepted and placed with remaining 1.
+[OMS] Order 200145 canceled.
+[OMS] Order 200146 accepted and placed with remaining 1.
+[OMS] Order 200146 canceled.
+[OMS] Order 200147 accepted and placed with remaining 1.
+[OMS] Order 200147 canceled.
+[OMS] Order 200148 accepted and placed with remaining 1.
+[OMS] Order 200148 canceled.
+[OMS] Order 200149 accepted and placed with remaining 1.
+[OMS] Order 200149 canceled.
+[OMS] Order 200150 accepted and placed with remaining 1.
+[OMS] Order 200150 canceled.
+[OMS] Order 200151 accepted and placed with remaining 1.
+[OMS] Order 200151 canceled.
+[OMS] Order 200152 accepted and placed with remaining 1.
+[OMS] Order 200152 canceled.
+[OMS] Order 200153 accepted and placed with remaining 1.
+[OMS] Order 200153 canceled.
+[OMS] Order 200154 accepted and placed with remaining 1.
+[OMS] Order 200154 canceled.
+[OMS] Order 200155 accepted and placed with remaining 1.
+[OMS] Order 200155 canceled.
+[OMS] Order 200156 accepted and placed with remaining 1.
+[OMS] Order 200156 canceled.
+[OMS] Order 200157 accepted and placed with remaining 1.
+[OMS] Order 200157 canceled.
+[OMS] Order 200158 accepted and placed with remaining 1.
+[OMS] Order 200158 canceled.
+[OMS] Order 200159 accepted and placed with remaining 1.
+[OMS] Order 200159 canceled.
+[OMS] Order 200160 accepted and placed with remaining 1.
+[OMS] Order 200160 canceled.
+[OMS] Order 200161 accepted and placed with remaining 1.
+[OMS] Order 200161 canceled.
+[OMS] Order 200162 accepted and placed with remaining 1.
+[OMS] Order 200162 canceled.
+[OMS] Order 200163 accepted and placed with remaining 1.
+[OMS] Order 200163 canceled.
+[OMS] Order 200164 accepted and placed with remaining 1.
+[OMS] Order 200164 canceled.
+[OMS] Order 200165 accepted and placed with remaining 1.
+[OMS] Order 200165 canceled.
+[OMS] Order 200166 accepted and placed with remaining 1.
+[OMS] Order 200166 canceled.
+[OMS] Order 200167 accepted and placed with remaining 1.
+[OMS] Order 200167 canceled.
+[OMS] Order 200168 accepted and placed with remaining 1.
+[OMS] Order 200168 canceled.
+[OMS] Order 200169 accepted and placed with remaining 1.
+[OMS] Order 200169 canceled.
+[OMS] Order 200170 accepted and placed with remaining 1.
+[OMS] Order 200170 canceled.
+[OMS] Order 200171 accepted and placed with remaining 1.
+[OMS] Order 200171 canceled.
+[OMS] Order 200172 accepted and placed with remaining 1.
+[OMS] Order 200172 canceled.
+[OMS] Order 200173 accepted and placed with remaining 1.
+[OMS] Order 200173 canceled.
+[OMS] Order 200174 accepted and placed with remaining 1.
+[OMS] Order 200174 canceled.
+[OMS] Order 200175 accepted and placed with remaining 1.
+[OMS] Order 200175 canceled.
+[OMS] Order 200176 accepted and placed with remaining 1.
+[OMS] Order 200176 canceled.
+[OMS] Order 200177 accepted and placed with remaining 1.
+[OMS] Order 200177 canceled.
+[OMS] Order 200178 accepted and placed with remaining 1.
+[OMS] Order 200178 canceled.
+[OMS] Order 200179 accepted and placed with remaining 1.
+[OMS] Order 200179 canceled.
+[OMS] Order 200180 accepted and placed with remaining 1.
+[OMS] Order 200180 canceled.
+[OMS] Order 200181 accepted and placed with remaining 1.
+[OMS] Order 200181 canceled.
+[OMS] Order 200182 accepted and placed with remaining 1.
+[OMS] Order 200182 canceled.
+[OMS] Order 200183 accepted and placed with remaining 1.
+[OMS] Order 200183 canceled.
+[OMS] Order 200184 accepted and placed with remaining 1.
+[OMS] Order 200184 canceled.
+[OMS] Order 200185 accepted and placed with remaining 1.
+[OMS] Order 200185 canceled.
+[OMS] Order 200186 accepted and placed with remaining 1.
+[OMS] Order 200186 canceled.
+[OMS] Order 200187 accepted and placed with remaining 1.
+[OMS] Order 200187 canceled.
+[OMS] Order 200188 accepted and placed with remaining 1.
+[OMS] Order 200188 canceled.
+[OMS] Order 200189 accepted and placed with remaining 1.
+[OMS] Order 200189 canceled.
+[OMS] Order 200190 accepted and placed with remaining 1.
+[OMS] Order 200190 canceled.
+[OMS] Order 200191 accepted and placed with remaining 1.
+[OMS] Order 200191 canceled.
+[OMS] Order 200192 accepted and placed with remaining 1.
+[OMS] Order 200192 canceled.
+[OMS] Order 200193 accepted and placed with remaining 1.
+[OMS] Order 200193 canceled.
+[OMS] Order 200194 accepted and placed with remaining 1.
+[OMS] Order 200194 canceled.
+[OMS] Order 200195 accepted and placed with remaining 1.
+[OMS] Order 200195 canceled.
+[OMS] Order 200196 accepted and placed with remaining 1.
+[OMS] Order 200196 canceled.
+[OMS] Order 200197 accepted and placed with remaining 1.
+[OMS] Order 200197 canceled.
+[OMS] Order 200198 accepted and placed with remaining 1.
+[OMS] Order 200198 canceled.
+[OMS] Order 200199 accepted and placed with remaining 1.
+[OMS] Order 200199 canceled.
+[OMS] Order 200200 accepted and placed with remaining 1.
+[OMS] Order 200200 canceled.
+[OMS] Order 100124 canceled.
+[OMS] Order 100125 accepted and placed with remaining 1.
+[OMS] Order 100125 canceled.
+[OMS] Order 100126 accepted and placed with remaining 1.
+[OMS] Order 100126 canceled.
+[OMS] Order 100127 accepted and placed with remaining 1.
+[OMS] Order 100127 canceled.
+[OMS] Order 100128 accepted and placed with remaining 1.
+[OMS] Order 100128 canceled.
+[OMS] Order 100129 accepted and placed with remaining 1.
+[OMS] Order 100129 canceled.
+[OMS] Order 100130 accepted and placed with remaining 1.
+[OMS] Order 100130 canceled.
+[OMS] Order 100131 accepted and placed with remaining 1.
+[OMS] Order 100131 canceled.
+[OMS] Order 100132 accepted and placed with remaining 1.
+[OMS] Order 100132 canceled.
+[OMS] Order 100133 accepted and placed with remaining 1.
+[OMS] Order 100133 canceled.
+[OMS] Order 100134 accepted and placed with remaining 1.
+[OMS] Order 100134 canceled.
+[OMS] Order 100135 accepted and placed with remaining 1.
+[OMS] Order 100135 canceled.
+[OMS] Order 100136 accepted and placed with remaining 1.
+[OMS] Order 100136 canceled.
+[OMS] Order 100137 accepted and placed with remaining 1.
+[OMS] Order 100137 canceled.
+[OMS] Order 100138 accepted and placed with remaining 1.
+[OMS] Order 100138 canceled.
+[OMS] Order 100139 accepted and placed with remaining 1.
+[OMS] Order 100139 canceled.
+[OMS] Order 100140 accepted and placed with remaining 1.
+[OMS] Order 100140 canceled.
+[OMS] Order 100141 accepted and placed with remaining 1.
+[OMS] Order 100141 canceled.
+[OMS] Order 100142 accepted and placed with remaining 1.
+[OMS] Order 100142 canceled.
+[OMS] Order 100143 accepted and placed with remaining 1.
+[OMS] Order 100143 canceled.
+[OMS] Order 100144 accepted and placed with remaining 1.
+[OMS] Order 100144 canceled.
+[OMS] Order 100145 accepted and placed with remaining 1.
+[OMS] Order 100145 canceled.
+[OMS] Order 100146 accepted and placed with remaining 1.
+[OMS] Order 100146 canceled.
+[OMS] Order 100147 accepted and placed with remaining 1.
+[OMS] Order 100147 canceled.
+[OMS] Order 100148 accepted and placed with remaining 1.
+[OMS] Order 100148 canceled.
+[OMS] Order 100149 accepted and placed with remaining 1.
+[OMS] Order 100149 canceled.
+[OMS] Order 100150 accepted and placed with remaining 1.
+[OMS] Order 100150 canceled.
+[OMS] Order 100151 accepted and placed with remaining 1.
+[OMS] Order 100151 canceled.
+[OMS] Order 100152 accepted and placed with remaining 1.
+[OMS] Order 100152 canceled.
+[OMS] Order 100153 accepted and placed with remaining 1.
+[OMS] Order 100153 canceled.
+[OMS] Order 100154 accepted and placed with remaining 1.
+[OMS] Order 100154 canceled.
+[OMS] Order 100155 accepted and placed with remaining 1.
+[OMS] Order 100155 canceled.
+[OMS] Order 100156 accepted and placed with remaining 1.
+[OMS] Order 100156 canceled.
+[OMS] Order 100157 accepted and placed with remaining 1.
+[OMS] Order 100157 canceled.
+[OMS] Order 100158 accepted and placed with remaining 1.
+[OMS] Order 100158 canceled.
+[OMS] Order 100159 accepted and placed with remaining 1.
+[OMS] Order 100159 canceled.
+[OMS] Order 100160 accepted and placed with remaining 1.
+[OMS] Order 100160 canceled.
+[OMS] Order 100161 accepted and placed with remaining 1.
+[OMS] Order 100161 canceled.
+[OMS] Order 100162 accepted and placed with remaining 1.
+[OMS] Order 100162 canceled.
+[OMS] Order 100163 accepted and placed with remaining 1.
+[OMS] Order 100163 canceled.
+[OMS] Order 100164 accepted and placed with remaining 1.
+[OMS] Order 100164 canceled.
+[OMS] Order 100165 accepted and placed with remaining 1.
+[OMS] Order 100165 canceled.
+[OMS] Order 100166 accepted and placed with remaining 1.
+[OMS] Order 100166 canceled.
+[OMS] Order 100167 accepted and placed with remaining 1.
+[OMS] Order 100167 canceled.
+[OMS] Order 100168 accepted and placed with remaining 1.
+[OMS] Order 100168 canceled.
+[OMS] Order 100169 accepted and placed with remaining 1.
+[OMS] Order 100169 canceled.
+[OMS] Order 100170 accepted and placed with remaining 1.
+[OMS] Order 100170 canceled.
+[OMS] Order 100171 accepted and placed with remaining 1.
+[OMS] Order 100171 canceled.
+[OMS] Order 100172 accepted and placed with remaining 1.
+[OMS] Order 100172 canceled.
+[OMS] Order 100173 accepted and placed with remaining 1.
+[OMS] Order 100173 canceled.
+[OMS] Order 100174 accepted and placed with remaining 1.
+[OMS] Order 100174 canceled.
+[OMS] Order 100175 accepted and placed with remaining 1.
+[OMS] Order 100175 canceled.
+[OMS] Order 100176 accepted and placed with remaining 1.
+[OMS] Order 100176 canceled.
+[OMS] Order 100177 accepted and placed with remaining 1.
+[OMS] Order 100177 canceled.
+[OMS] Order 100178 accepted and placed with remaining 1.
+[OMS] Order 100178 canceled.
+[OMS] Order 100179 accepted and placed with remaining 1.
+[OMS] Order 100179 canceled.
+[OMS] Order 100180 accepted and placed with remaining 1.
+[OMS] Order 100180 canceled.
+[OMS] Order 100181 accepted and placed with remaining 1.
+[OMS] Order 100181 canceled.
+[OMS] Order 100182 accepted and placed with remaining 1.
+[OMS] Order 100182 canceled.
+[OMS] Order 100183 accepted and placed with remaining 1.
+[OMS] Order 100183 canceled.
+[OMS] Order 100184 accepted and placed with remaining 1.
+[OMS] Order 100184 canceled.
+[OMS] Order 100185 accepted and placed with remaining 1.
+[OMS] Order 100185 canceled.
+[OMS] Order 100186 accepted and placed with remaining 1.
+[OMS] Order 100186 canceled.
+[OMS] Order 100187 accepted and placed with remaining 1.
+[OMS] Order 100187 canceled.
+[OMS] Order 100188 accepted and placed with remaining 1.
+[OMS] Order 100188 canceled.
+[OMS] Order 100189 accepted and placed with remaining 1.
+[OMS] Order 100189 canceled.
+[OMS] Order 100190 accepted and placed with remaining 1.
+[OMS] Order 100190 canceled.
+[OMS] Order 100191 accepted and placed with remaining 1.
+[OMS] Order 100191 canceled.
+[OMS] Order 100192 accepted and placed with remaining 1.
+[OMS] Order 100192 canceled.
+[OMS] Order 100193 accepted and placed with remaining 1.
+[OMS] Order 100193 canceled.
+[OMS] Order 100194 accepted and placed with remaining 1.
+[OMS] Order 100194 canceled.
+[OMS] Order 100195 accepted and placed with remaining 1.
+[OMS] Order 100195 canceled.
+[OMS] Order 100196 accepted and placed with remaining 1.
+[OMS] Order 100196 canceled.
+[OMS] Order 100197 accepted and placed with remaining 1.
+[OMS] Order 100197 canceled.
+[OMS] Order 100198 accepted and placed with remaining 1.
+[OMS] Order 100198 canceled.
+[OMS] Order 100199 accepted and placed with remaining 1.
+[OMS] Order 100199 canceled.
+[OMS] Order 100200 accepted and placed with remaining 1.
+[OMS] Order 100200 canceled.
+[OMS] Order 300101 accepted and placed with remaining 1.
+[OMS] Order 300101 canceled.
+[OMS] Order 300102 accepted and placed with remaining 1.
+[OMS] Order 300102 canceled.
+[OMS] Order 300103 accepted and placed with remaining 1.
+[OMS] Order 300103 canceled.
+[OMS] Order 300104 accepted and placed with remaining 1.
+[OMS] Order 300104 canceled.
+[OMS] Order 300105 accepted and placed with remaining 1.
+[OMS] Order 300105 canceled.
+[OMS] Order 300106 accepted and placed with remaining 1.
+[OMS] Order 300106 canceled.
+[OMS] Order 300107 accepted and placed with remaining 1.
+[OMS] Order 300107 canceled.
+[OMS] Order 300108 accepted and placed with remaining 1.
+[OMS] Order 300108 canceled.
+[OMS] Order 300109 accepted and placed with remaining 1.
+[OMS] Order 300109 canceled.
+[OMS] Order 300110 accepted and placed with remaining 1.
+[OMS] Order 300110 canceled.
+[OMS] Order 300111 accepted and placed with remaining 1.
+[OMS] Order 300111 canceled.
+[OMS] Order 300112 accepted and placed with remaining 1.
+[OMS] Order 300112 canceled.
+[OMS] Order 300113 accepted and placed with remaining 1.
+[OMS] Order 300113 canceled.
+[OMS] Order 300114 accepted and placed with remaining 1.
+[OMS] Order 300114 canceled.
+[OMS] Order 300115 accepted and placed with remaining 1.
+[OMS] Order 300115 canceled.
+[OMS] Order 300116 accepted and placed with remaining 1.
+[OMS] Order 300116 canceled.
+[OMS] Order 300117 accepted and placed with remaining 1.
+[OMS] Order 300117 canceled.
+[OMS] Order 300118 accepted and placed with remaining 1.
+[OMS] Order 300118 canceled.
+[OMS] Order 300119 accepted and placed with remaining 1.
+[OMS] Order 300119 canceled.
+[OMS] Order 300120 accepted and placed with remaining 1.
+[OMS] Order 300120 canceled.
+[OMS] Order 300121 accepted and placed with remaining 1.
+[OMS] Order 300121 canceled.
+[OMS] Order 300122 accepted and placed with remaining 1.
+[OMS] Order 300122 canceled.
+[OMS] Order 300123 accepted and placed with remaining 1.
+[OMS] Order 300123 canceled.
+[OMS] Order 300124 accepted and placed with remaining 1.
+[OMS] Order 300124 canceled.
+[OMS] Order 300125 accepted and placed with remaining 1.
+[OMS] Order 300125 canceled.
+[OMS] Order 300126 accepted and placed with remaining 1.
+[OMS] Order 300126 canceled.
+[OMS] Order 300127 accepted and placed with remaining 1.
+[OMS] Order 300127 canceled.
+[OMS] Order 300128 accepted and placed with remaining 1.
+[OMS] Order 300128 canceled.
+[OMS] Order 300129 accepted and placed with remaining 1.
+[OMS] Order 300129 canceled.
+[OMS] Order 300130 accepted and placed with remaining 1.
+[OMS] Order 300130 canceled.
+[OMS] Order 300131 accepted and placed with remaining 1.
+[OMS] Order 300131 canceled.
+[OMS] Order 300132 accepted and placed with remaining 1.
+[OMS] Order 300132 canceled.
+[OMS] Order 300133 accepted and placed with remaining 1.
+[OMS] Order 300133 canceled.
+[OMS] Order 300134 accepted and placed with remaining 1.
+[OMS] Order 300134 canceled.
+[OMS] Order 300135 accepted and placed with remaining 1.
+[OMS] Order 300135 canceled.
+[OMS] Order 300136 accepted and placed with remaining 1.
+[OMS] Order 300136 canceled.
+[OMS] Order 300137 accepted and placed with remaining 1.
+[OMS] Order 300137 canceled.
+[OMS] Order 300138 accepted and placed with remaining 1.
+[OMS] Order 300138 canceled.
+[OMS] Order 300139 accepted and placed with remaining 1.
+[OMS] Order 300139 canceled.
+[OMS] Order 300140 accepted and placed with remaining 1.
+[OMS] Order 300140 canceled.
+[OMS] Order 300141 accepted and placed with remaining 1.
+[OMS] Order 300141 canceled.
+[OMS] Order 300142 accepted and placed with remaining 1.
+[OMS] Order 300142 canceled.
+[OMS] Order 300143 accepted and placed with remaining 1.
+[OMS] Order 300143 canceled.
+[OMS] Order 300144 accepted and placed with remaining 1.
+[OMS] Order 300144 canceled.
+[OMS] Order 300145 accepted and placed with remaining 1.
+[OMS] Order 300145 canceled.
+[OMS] Order 300146 accepted and placed with remaining 1.
+[OMS] Order 300146 canceled.
+[OMS] Order 300147 accepted and placed with remaining 1.
+[OMS] Order 300147 canceled.
+[OMS] Order 300148 accepted and placed with remaining 1.
+[OMS] Order 300148 canceled.
+[OMS] Order 300149 accepted and placed with remaining 1.
+[OMS] Order 300149 canceled.
+[OMS] Order 300150 accepted and placed with remaining 1.
+[OMS] Order 300150 canceled.
+[OMS] Order 300151 accepted and placed with remaining 1.
+[OMS] Order 300151 canceled.
+[OMS] Order 300152 accepted and placed with remaining 1.
+[OMS] Order 300152 canceled.
+[OMS] Order 300153 accepted and placed with remaining 1.
+[OMS] Order 300153 canceled.
+[OMS] Order 300154 accepted and placed with remaining 1.
+[OMS] Order 300154 canceled.
+[OMS] Order 300155 accepted and placed with remaining 1.
+[OMS] Order 300155 canceled.
+[OMS] Order 300156 accepted and placed with remaining 1.
+[OMS] Order 300156 canceled.
+[OMS] Order 300157 accepted and placed with remaining 1.
+[OMS] Order 300157 canceled.
+[OMS] Order 300158 accepted and placed with remaining 1.
+[OMS] Order 300158 canceled.
+[OMS] Order 300159 accepted and placed with remaining 1.
+[OMS] Order 300159 canceled.
+[OMS] Order 300160 accepted and placed with remaining 1.
+[OMS] Order 300160 canceled.
+[OMS] Order 300161 accepted and placed with remaining 1.
+[OMS] Order 300161 canceled.
+[OMS] Order 300162 accepted and placed with remaining 1.
+[OMS] Order 300162 canceled.
+[OMS] Order 300163 accepted and placed with remaining 1.
+[OMS] Order 300163 canceled.
+[OMS] Order 300164 accepted and placed with remaining 1.
+[OMS] Order 300164 canceled.
+[OMS] Order 300165 accepted and placed with remaining 1.
+[OMS] Order 300165 canceled.
+[OMS] Order 300166 accepted and placed with remaining 1.
+[OMS] Order 300166 canceled.
+[OMS] Order 300167 accepted and placed with remaining 1.
+[OMS] Order 300167 canceled.
+[OMS] Order 300168 accepted and placed with remaining 1.
+[OMS] Order 300168 canceled.
+[OMS] Order 300169 accepted and placed with remaining 1.
+[OMS] Order 300169 canceled.
+[OMS] Order 300170 accepted and placed with remaining 1.
+[OMS] Order 300170 canceled.
+[OMS] Order 300171 accepted and placed with remaining 1.
+[OMS] Order 300171 canceled.
+[OMS] Order 300172 accepted and placed with remaining 1.
+[OMS] Order 300172 canceled.
+[OMS] Order 300173 accepted and placed with remaining 1.
+[OMS] Order 300173 canceled.
+[OMS] Order 300174 accepted and placed with remaining 1.
+[OMS] Order 300174 canceled.
+[OMS] Order 300175 accepted and placed with remaining 1.
+[OMS] Order 300175 canceled.
+[OMS] Order 300176 accepted and placed with remaining 1.
+[OMS] Order 300176 canceled.
+[OMS] Order 300177 accepted and placed with remaining 1.
+[OMS] Order 300177 canceled.
+[OMS] Order 300178 accepted and placed with remaining 1.
+[OMS] Order 300178 canceled.
+[OMS] Order 300179 accepted and placed with remaining 1.
+[OMS] Order 300179 canceled.
+[OMS] Order 300180 accepted and placed with remaining 1.
+[OMS] Order 300180 canceled.
+[OMS] Order 300181 accepted and placed with remaining 1.
+[OMS] Order 300181 canceled.
+[OMS] Order 300182 accepted and placed with remaining 1.
+[OMS] Order 300182 canceled.
+[OMS] Order 300183 accepted and placed with remaining 1.
+[OMS] Order 300183 canceled.
+[OMS] Order 300184 accepted and placed with remaining 1.
+[OMS] Order 300184 canceled.
+[OMS] Order 300185 accepted and placed with remaining 1.
+[OMS] Order 300185 canceled.
+[OMS] Order 300186 accepted and placed with remaining 1.
+[OMS] Order 300186 canceled.
+[OMS] Order 300187 accepted and placed with remaining 1.
+[OMS] Order 300187 canceled.
+[OMS] Order 300188 accepted and placed with remaining 1.
+[OMS] Order 300188 canceled.
+[OMS] Order 300189 accepted and placed with remaining 1.
+[OMS] Order 300189 canceled.
+[OMS] Order 300190 accepted and placed with remaining 1.
+[OMS] Order 300190 canceled.
+[OMS] Order 300191 accepted and placed with remaining 1.
+[OMS] Order 300191 canceled.
+[OMS] Order 300192 accepted and placed with remaining 1.
+[OMS] Order 300192 canceled.
+[OMS] Order 300193 accepted and placed with remaining 1.
+[OMS] Order 300193 canceled.
+[OMS] Order 300194 accepted and placed with remaining 1.
+[OMS] Order 300194 canceled.
+[OMS] Order 300195 accepted and placed with remaining 1.
+[OMS] Order 300195 canceled.
+[OMS] Order 300196 accepted and placed with remaining 1.
+[OMS] Order 300196 canceled.
+[OMS] Order 300197 accepted and placed with remaining 1.
+[OMS] Order 300197 canceled.
+[OMS] Order 300198 accepted and placed with remaining 1.
+[OMS] Order 300198 canceled.
+[OMS] Order 300199 accepted and placed with remaining 1.
+[OMS] Order 300199 canceled.
+[OMS] Order 300200 accepted and placed with remaining 1.
+[OMS] Order 300200 canceled.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"order_concurrency_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"order_concurrency_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/14 Testing: risk_reservation_test
+6/14 Test: risk_reservation_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/risk_reservation_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"risk_reservation_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"risk_reservation_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"risk_reservation_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/14 Testing: data_writer_test
+7/14 Test: data_writer_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/data_writer_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"data_writer_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"data_writer_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"data_writer_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/14 Testing: api_gateway_contract_test
+8/14 Test: api_gateway_contract_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/api_gateway_contract_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"api_gateway_contract_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   1.57 sec
+----------------------------------------------------------
+Test Passed.
+"api_gateway_contract_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"api_gateway_contract_test" time elapsed: 00:00:01
+----------------------------------------------------------
+
+9/14 Testing: api_order_guard_test
+9/14 Test: api_order_guard_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/api_order_guard_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"api_order_guard_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+[OMS] Order 9001 accepted and placed with remaining 1.
+[OMS] Order 9002 fully processed.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"api_order_guard_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"api_order_guard_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/14 Testing: api_network_e2e_test
+10/14 Test: api_network_e2e_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/api_network_e2e_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"api_network_e2e_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"api_network_e2e_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"api_network_e2e_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/14 Testing: event_journal_replay_test
+11/14 Test: event_journal_replay_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/event_journal_replay_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"event_journal_replay_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+[OMS] Order 1001 accepted and placed with remaining 1.
+[OMS] Order 1002 fully processed.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"event_journal_replay_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"event_journal_replay_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/14 Testing: fix_adapter_test
+12/14 Test: fix_adapter_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/fix_adapter_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"fix_adapter_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"fix_adapter_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"fix_adapter_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/14 Testing: smart_router_test
+13/14 Test: smart_router_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/smart_router_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"smart_router_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"smart_router_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"smart_router_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/14 Testing: market_simulator_test
+14/14 Test: market_simulator_test
+Command: "C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/bin/Release/market_simulator_test.exe"
+Directory: C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests
+"market_simulator_test" start time: Feb 24 14:33 Hora estándar de Argentina
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"market_simulator_test" end time: Feb 24 14:33 Hora estándar de Argentina
+"market_simulator_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 24 14:33 Hora estándar de Argentina

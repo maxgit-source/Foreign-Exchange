@@ -18,11 +18,12 @@ export interface OrderAckEvent {
   filled_quantity: number;
   remaining_quantity: number;
   reject_reason: string;
+  gateway_reject_reason: string;
 }
 
 export interface HealthResponse {
   status: 'ok' | 'degraded' | 'down';
-  timestamp?: string;
+  timestamp_ns?: number;
   ticks_received?: number;
   ticks_decoded?: number;
   decode_errors?: number;

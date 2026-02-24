@@ -71,6 +71,10 @@ inline void normalize_order_scalars(Order* order) {
     if (order->quantity == 0.0 && order->quantity_lots != 0) {
         order->quantity = from_quantity_lots(order->quantity_lots);
     }
+
+    if (order->tif == 0) {
+        order->tif = TIF_GTC;
+    }
 }
 
 inline int64_t signed_notional_units(const Order& order) {

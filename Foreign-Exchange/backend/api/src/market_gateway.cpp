@@ -2,8 +2,11 @@
 
 #include "codec/market_tick_codec.hpp"
 #include "core/time_utils.hpp"
+#include "core/fixed_point.hpp"
+#include "persist/event_journal.hpp"
 
 #include <cctype>
+#include <functional>
 #include <sstream>
 
 namespace argentum::api {
@@ -30,8 +33,10 @@ std::string json_escape(const char* raw) {
 MarketGatewayService::MarketGatewayService(
     std::shared_ptr<bus::MessageBus> bus,
     std::string market_topic,
-    GatewaySecurityConfig security)
+    GatewaySecurityConfig security,
+    std::shared_ptr<persist::EventJournal> journal)
     : bus_(std::move(bus)),
+      journal_(std::move(journal)),
       market_topic_(std::move(market_topic)),
       security_(std::move(security)) {
     if (!security_.api_token.empty()) {
@@ -237,6 +242,34 @@ void MarketGatewayService::reset_metrics() {
     rate_limited_.store(0, std::memory_order_relaxed);
 }
 
+void MarketGatewayService::emit_gateway_reject_event(
+    uint64_t order_id,
+    const Order& order,
+    GatewayRejectReason reason,
+    const std::string& token) {
+    if (!journal_) return;
+    Order normalized = order;
+    core::normalize_order_scalars(&normalized);
+
+    // Assign deterministic synthetic ID for anonymous failures (pre-order parse paths).
+    const uint64_t effective_order_id = (order_id != 0) ? order_id : static_cast<uint64_t>(std::hash<std::string>{}(token));
+
+    persist::JournalEvent event{};
+    event.timestamp_ns = core::unix_now_ns();
+    event.type = persist::JournalEventType::GatewayRejected;
+    event.order_id = effective_order_id;
+    event.related_order_id = 0;
+    event.price_ticks = normalized.price_ticks;
+    event.quantity_lots = normalized.quantity_lots;
+    event.remaining_lots = normalized.quantity_lots;
+    event.reason_code = static_cast<int32_t>(reason);
+    event.side = normalized.side;
+    event.order_type = normalized.type;
+    event.tif = normalized.tif;
+    event.resting = false;
+    (void)journal_->append(event);
+}
+
 std::string MarketGatewayService::normalize_key(const char* symbol) {
     std::string key;
     if (!symbol) return key;
@@ -267,6 +300,7 @@ OrderAck submit_order(
     const std::string& api_token) {
     GatewayRejectReason gateway_reason = GatewayRejectReason::None;
     if (!gateway.authorize_request(api_token, &gateway_reason)) {
+        gateway.emit_gateway_reject_event(order.order_id, order, gateway_reason, api_token);
         return {
             order.order_id,
             false,
@@ -290,6 +324,7 @@ const char* reject_reason_to_string(trading::OrderRejectReason reason) {
         case trading::OrderRejectReason::DuplicateOrderId: return "duplicate_order_id";
         case trading::OrderRejectReason::RiskRejected: return "risk_rejected";
         case trading::OrderRejectReason::InternalError: return "internal_error";
+        case trading::OrderRejectReason::LiquidityUnavailable: return "liquidity_unavailable";
         default: return "unknown";
     }
 }

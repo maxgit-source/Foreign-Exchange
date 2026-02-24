@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/cmake_install.cmake",
+		"C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/cmake_install.cmake",
+		"C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/api/cmake_install.cmake",
+		"C:/Users/User/OneDrive/Desktop/Foreign-Exchange/build-phase23/backend/tests/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -51,6 +51,7 @@ Required fields:
 - `duplicate_order_id`
 - `risk_rejected`
 - `internal_error`
+- `liquidity_unavailable`
 
 ## Health Payload
 

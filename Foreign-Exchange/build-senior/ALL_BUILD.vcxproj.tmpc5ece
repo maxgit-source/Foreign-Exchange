@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CA5B48AA-4200-389A-BCA7-F64BE1C230A4}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\api_gateway_contract_test.vcxproj">
+      <Project>{DF2CBA6C-F267-31D7-BA5B-E88275802DBA}</Project>
+      <Name>api_gateway_contract_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\api_network_e2e_test.vcxproj">
+      <Project>{B32DA26C-5539-3E21-8FCF-AC812438E142}</Project>
+      <Name>api_network_e2e_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\api_order_guard_test.vcxproj">
+      <Project>{DB5F5A12-C08B-3008-91C8-F35D8F2812C7}</Project>
+      <Name>api_order_guard_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\api\argentum_api.vcxproj">
+      <Project>{82521A96-DB26-3FE0-9BD2-D750843DA0D4}</Project>
+      <Name>argentum_api</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_backtest.vcxproj">
+      <Project>{7ECEF36A-5516-3BF2-8534-7883FB10596F}</Project>
+      <Name>argentum_backtest</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_bus.vcxproj">
+      <Project>{515D7892-BF2B-3CA3-81C8-2E2D0E5630B7}</Project>
+      <Name>argentum_bus</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_codec.vcxproj">
+      <Project>{B99A1770-60CE-38B7-95D6-B619901328B8}</Project>
+      <Name>argentum_codec</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_core.vcxproj">
+      <Project>{E1642563-4448-31E0-92B0-D42C1DCB4002}</Project>
+      <Name>argentum_core</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_datafeed.vcxproj">
+      <Project>{718F3543-32C2-3ADB-BDE2-B4738557439B}</Project>
+      <Name>argentum_datafeed</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_engine.vcxproj">
+      <Project>{769A1742-AEE8-37A4-9FBE-FC25941307DF}</Project>
+      <Name>argentum_engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_gateway.vcxproj">
+      <Project>{340DEA6A-2026-3236-AF36-35007A45CB88}</Project>
+      <Name>argentum_gateway</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_network.vcxproj">
+      <Project>{74F5D0C8-95BA-3683-ADD6-932DA99CEF62}</Project>
+      <Name>argentum_network</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_node.vcxproj">
+      <Project>{A28BECA3-7071-3484-AEB5-63C0B3C45A66}</Project>
+      <Name>argentum_node</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_persist.vcxproj">
+      <Project>{C309B7C5-7F25-3A0D-97A8-95FEDD06DE6E}</Project>
+      <Name>argentum_persist</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_pipeline_benchmark.vcxproj">
+      <Project>{EAC05030-764A-3EEB-AA12-0D4C14D98182}</Project>
+      <Name>argentum_pipeline_benchmark</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_replay.vcxproj">
+      <Project>{014099B1-CB31-33CC-9D29-2C56DC827E75}</Project>
+      <Name>argentum_replay</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_risk.vcxproj">
+      <Project>{D4F122D4-E350-318A-87EB-71D56CB0F7EF}</Project>
+      <Name>argentum_risk</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\argentum_trading.vcxproj">
+      <Project>{5B3DDA6B-1890-3514-9F4E-E84571A3ECA1}</Project>
+      <Name>argentum_trading</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\data_writer_test.vcxproj">
+      <Project>{39FCE266-9D52-3C87-B838-FA6A6325D7F4}</Project>
+      <Name>data_writer_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\event_journal_replay_test.vcxproj">
+      <Project>{471D3F8F-7600-370B-85C2-6AE42EBE6CF0}</Project>
+      <Name>event_journal_replay_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\fix_adapter_test.vcxproj">
+      <Project>{7392DD36-A3B7-32F8-A3E1-F91EBA895713}</Project>
+      <Name>fix_adapter_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\market_simulator_test.vcxproj">
+      <Project>{DF30853C-A11B-367D-B7F9-E40879337062}</Project>
+      <Name>market_simulator_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\message_bus_test.vcxproj">
+      <Project>{85491185-4627-39FF-B2AA-9748A367A8DE}</Project>
+      <Name>message_bus_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\message_codec_test.vcxproj">
+      <Project>{E1336FC7-E976-3BA0-B18F-C24AC4F01A14}</Project>
+      <Name>message_codec_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\order_concurrency_test.vcxproj">
+      <Project>{A1C5D372-0FE0-3CDA-8921-FED8C43849B5}</Project>
+      <Name>order_concurrency_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\order_flow_test.vcxproj">
+      <Project>{0795C19D-E88C-36B6-80EB-F316DE137DD1}</Project>
+      <Name>order_flow_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\order_tif_test.vcxproj">
+      <Project>{E32A182E-1CB2-3EE3-AFC6-F2595600769C}</Project>
+      <Name>order_tif_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\risk_reservation_test.vcxproj">
+      <Project>{B0D270FA-D618-309C-B381-FFAA7207A1B0}</Project>
+      <Name>risk_reservation_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\User\OneDrive\Desktop\Foreign-Exchange\build-senior\backend\tests\smart_router_test.vcxproj">
+      <Project>{DA66A290-19DA-31F7-AF17-4AA9404C1D8A}</Project>
+      <Name>smart_router_test</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -710,6 +710,7 @@ bool HttpWsServer::parse_order_json(const std::string& body, Order* out_order) c
     std::string symbol;
     std::string side;
     std::string type;
+    std::string tif = "gtc";
     double price = 0.0;
     double quantity = 0.0;
 
@@ -718,8 +719,10 @@ bool HttpWsServer::parse_order_json(const std::string& body, Order* out_order) c
     if (!parse_string_field(body, "symbol", &symbol)) return false;
     if (!parse_string_field(body, "side", &side)) return false;
     if (!parse_string_field(body, "type", &type)) return false;
+    (void)parse_string_field(body, "time_in_force", &tif);
     if (!parse_double_field(body, "quantity", &quantity)) return false;
-    if (!parse_double_field(body, "price", &price)) {
+    const bool has_price = parse_double_field(body, "price", &price);
+    if (!has_price) {
         price = 0.0;
     }
 
@@ -749,6 +752,20 @@ bool HttpWsServer::parse_order_json(const std::string& body, Order* out_order) c
     } else {
         return false;
     }
+
+    const std::string tif_lc = to_lower(tif);
+    if (tif_lc == "gtc") {
+        order.tif = TIF_GTC;
+    } else if (tif_lc == "ioc") {
+        order.tif = TIF_IOC;
+    } else if (tif_lc == "fok") {
+        order.tif = TIF_FOK;
+    } else {
+        return false;
+    }
+
+    if (quantity <= 0.0) return false;
+    if (price <= 0.0) return false;
 
     *out_order = order;
     return true;

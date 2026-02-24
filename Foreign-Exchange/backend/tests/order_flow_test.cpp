@@ -59,6 +59,19 @@ int main() {
     assert(almost_equal(taker_result.remaining_quantity, 0.0));
 
     assert(oms.active_order_count() == 1);
+
+    Order invalid_market{};
+    invalid_market.order_id = 3003;
+    invalid_market.price = 0.0;
+    invalid_market.quantity = 0.2;
+    invalid_market.side = SIDE_BUY;
+    invalid_market.type = ORDER_TYPE_MARKET;
+    invalid_market.timestamp_ns = 3;
+    std::strncpy(invalid_market.symbol, "BTC/USDT", sizeof(invalid_market.symbol) - 1);
+    auto invalid_market_result = oms.submit_order(invalid_market);
+    assert(!invalid_market_result.accepted);
+    assert(invalid_market_result.reject_reason == argentum::trading::OrderRejectReason::InvalidOrder);
+
     auto ask = book->get_best_ask();
     assert(ask.has_value());
     assert(almost_equal(*ask, 100.0));

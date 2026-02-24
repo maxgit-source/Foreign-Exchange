@@ -1,5 +1,9 @@
 # Plan
 
+For detailed upgrade path from prototype (`~4.5/10`) to institutional product (`9/10`), see:
+- `docs/ROADMAP_9_10.md`
+- `docs/EXECUTION_PLAN_9_10_EXHAUSTIVE.md` (codebase-wide execution plan)
+
 ## Phase 0 (2-3 weeks): foundation
 - repo structure and build system (CMake + Vite)
 - core data model and common utilities

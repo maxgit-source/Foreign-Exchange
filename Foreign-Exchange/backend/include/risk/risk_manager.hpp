@@ -2,7 +2,10 @@
 
 #include "core/types.h"
 #include "core/fixed_point.hpp"
-#include <atomic>
+
+#include <cstdint>
+#include <mutex>
+#include <unordered_map>
 
 namespace argentum::risk {
 
@@ -53,13 +56,21 @@ public:
     int64_t filled_exposure_units() const;
 
 private:
+    struct Reservation {
+        Side side = SIDE_BUY;
+        int64_t reserved_price_ticks = 0;
+        int64_t remaining_lots = 0;
+    };
+
     RiskLimits limits_;
-    std::atomic<int64_t> committed_exposure_units_{0};
-    std::atomic<int64_t> filled_exposure_units_{0};
-    std::atomic<double> daily_pl_{0.0};
+    mutable std::mutex mutex_;
+    int64_t committed_exposure_units_ = 0;
+    int64_t filled_exposure_units_ = 0;
+    double daily_pl_ = 0.0;
+    std::unordered_map<uint64_t, Reservation> reservations_;
+
     static bool is_valid_order(const Order& order);
     static int64_t signed_notional_units(const Order& order);
-    static int64_t atomic_add(std::atomic<int64_t>& target, int64_t delta);
 };
 
 } // namespace argentum::risk

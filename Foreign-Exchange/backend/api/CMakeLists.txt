@@ -8,6 +8,7 @@ target_link_libraries(argentum_api PUBLIC
   argentum_bus
   argentum_codec
   argentum_trading
+  argentum_persist
   argentum_network
   argentum_core
 )

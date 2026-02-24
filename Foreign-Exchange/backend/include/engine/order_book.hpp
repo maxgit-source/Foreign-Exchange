@@ -46,7 +46,8 @@ public:
      * @brief Matches incoming market orders against the book.
      * @return Vector of matched trades.
      */
-    std::vector<Trade> match_order(const Order& incoming);
+    std::vector<Trade> match_order(const Order& incoming, bool rest_residual = true);
+    [[nodiscard]] int64_t executable_lots(const Order& incoming) const;
 
     /**
      * @brief Get the best Bid price.

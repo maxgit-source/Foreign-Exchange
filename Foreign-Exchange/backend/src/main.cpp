@@ -10,6 +10,7 @@
 #include "bus/message_protocol.hpp"
 #include "datafeed/feed_player.hpp"
 #include "persist/data_writer.hpp"
+#include "persist/event_journal.hpp"
 #include "trading/order_manager.hpp"
 #include "risk/risk_manager.hpp"
 #include "engine/order_book.hpp"
@@ -58,7 +59,8 @@ int main() {
         20'000'000.0,
         1'000'000.0
     });
-    argentum::trading::OrderManager oms(risk, book);
+    auto event_journal = std::make_shared<argentum::persist::EventJournal>("data/order_events.jsonl");
+    argentum::trading::OrderManager oms(risk, book, event_journal);
 
     argentum::api::GatewaySecurityConfig security{};
     if (const char* token_env = std::getenv("ARGENTUM_API_TOKEN")) {
@@ -69,7 +71,7 @@ int main() {
     security.rate_limit.max_requests = 240;
     security.rate_limit.window_ms = 1000;
 
-    argentum::api::MarketGatewayService gateway(bus, "market.ticks", security);
+    argentum::api::MarketGatewayService gateway(bus, "market.ticks", security, event_journal);
     gateway.start();
 
     uint16_t api_port = 8080;

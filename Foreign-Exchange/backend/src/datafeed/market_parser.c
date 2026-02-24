@@ -137,11 +137,92 @@ static ArgentumStatus parse_json(const char* data, size_t len, MarketTick* out) 
     return ARGENTUM_OK;
 }
 
+static const char* find_fix_tag(const char* data, size_t len, const char* tag, char delimiter, size_t* out_value_len) {
+    const size_t tag_len = strlen(tag);
+    for (size_t i = 0; i + tag_len + 1 < len; ++i) {
+        if (memcmp(&data[i], tag, tag_len) != 0) continue;
+        if (data[i + tag_len] != '=') continue;
+
+        const size_t val_begin = i + tag_len + 1;
+        size_t val_end = val_begin;
+        while (val_end < len && data[val_end] != delimiter) ++val_end;
+        if (val_end <= val_begin) continue;
+        if (out_value_len) *out_value_len = (val_end - val_begin);
+        return &data[val_begin];
+    }
+    return NULL;
+}
+
+static ArgentumStatus copy_fix_value(
+    const char* data,
+    size_t len,
+    const char* tag,
+    char delimiter,
+    char* out,
+    size_t out_len) {
+    size_t value_len = 0;
+    const char* value = find_fix_tag(data, len, tag, delimiter, &value_len);
+    if (!value || value_len == 0) return ARGENTUM_ERR_PARSE;
+    if (value_len + 1 > out_len) return ARGENTUM_ERR_RANGE;
+    memcpy(out, value, value_len);
+    out[value_len] = '\0';
+    return ARGENTUM_OK;
+}
+
+static ArgentumStatus parse_fix(const char* data, size_t len, MarketTick* out) {
+    if (!data || !out || len == 0) return ARGENTUM_ERR_INVALID;
+
+    memset(out, 0, sizeof(*out));
+    const char delimiter = (memchr(data, '|', len) != NULL) ? '|' : '\x01';
+
+    char symbol_raw[SYMBOL_LEN * 2] = {0};
+    char side_raw[8] = {0};
+    char price_raw[64] = {0};
+    char qty_raw[64] = {0};
+    char ts_raw[32] = {0};
+
+    if (copy_fix_value(data, len, "55", delimiter, symbol_raw, sizeof(symbol_raw)) != ARGENTUM_OK) {
+        return ARGENTUM_ERR_PARSE;
+    }
+    if (copy_fix_value(data, len, "54", delimiter, side_raw, sizeof(side_raw)) != ARGENTUM_OK) {
+        return ARGENTUM_ERR_PARSE;
+    }
+    if (copy_fix_value(data, len, "44", delimiter, price_raw, sizeof(price_raw)) != ARGENTUM_OK) {
+        return ARGENTUM_ERR_PARSE;
+    }
+    if (copy_fix_value(data, len, "38", delimiter, qty_raw, sizeof(qty_raw)) != ARGENTUM_OK) {
+        return ARGENTUM_ERR_PARSE;
+    }
+
+    if (normalize_symbol(symbol_raw, out->symbol, sizeof(out->symbol)) != ARGENTUM_OK) {
+        return ARGENTUM_ERR_INVALID;
+    }
+
+    out->price = strtod(price_raw, NULL);
+    out->quantity = strtod(qty_raw, NULL);
+    if (out->price <= 0.0 || out->quantity <= 0.0) return ARGENTUM_ERR_PARSE;
+
+    if (side_raw[0] == '1' || side_raw[0] == 'B' || side_raw[0] == 'b') {
+        out->side = SIDE_BUY;
+    } else if (side_raw[0] == '2' || side_raw[0] == 'S' || side_raw[0] == 's') {
+        out->side = SIDE_SELL;
+    } else {
+        return ARGENTUM_ERR_PARSE;
+    }
+
+    if (copy_fix_value(data, len, "60", delimiter, ts_raw, sizeof(ts_raw)) == ARGENTUM_OK) {
+        out->timestamp_ns = (uint64_t)strtoull(ts_raw, NULL, 10);
+    }
+    strncpy(out->source, "FIX", sizeof(out->source) - 1);
+    return ARGENTUM_OK;
+}
+
 ArgentumStatus parse_market_message(FeedFormat format, const char* data, size_t len, MarketTick* out) {
     switch (format) {
         case FEED_FORMAT_JSON:
             return parse_json(data, len, out);
         case FEED_FORMAT_FIX:
+            return parse_fix(data, len, out);
         case FEED_FORMAT_SBE:
         default:
             return ARGENTUM_ERR_INVALID;
