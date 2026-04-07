@@ -1,0 +1,6 @@
+com\tunegocio\turnosapi\controller\AuthControllerTest.class
+com\tunegocio\turnosapi\service\DisponibilidadServiceTest.class
+com\tunegocio\turnosapi\service\PedidoServiceTest.class
+com\tunegocio\turnosapi\service\PlanValidatorTest.class
+com\tunegocio\turnosapi\controller\WebhookControllerTest.class
+com\tunegocio\turnosapi\service\TurnoServiceTest.class
