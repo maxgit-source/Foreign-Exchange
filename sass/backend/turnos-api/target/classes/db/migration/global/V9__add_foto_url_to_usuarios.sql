@@ -1,2 +1,0 @@
-ALTER TABLE usuarios
-    ADD COLUMN IF NOT EXISTS foto_url TEXT;

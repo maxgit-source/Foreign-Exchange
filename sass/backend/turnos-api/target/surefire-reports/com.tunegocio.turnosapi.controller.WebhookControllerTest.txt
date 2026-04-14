@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.tunegocio.turnosapi.controller.WebhookControllerTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.315 s -- in com.tunegocio.turnosapi.controller.WebhookControllerTest
